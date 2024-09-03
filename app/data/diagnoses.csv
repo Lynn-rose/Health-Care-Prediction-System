@@ -1,11 +1,11 @@
 diagnosis_id,adm_id,diagnosis
-0,0,"Dysphagia, oropharyngeal phase"
-1,1,"Dysphagia, oropharyngeal phase"
-2,2,Methicillin resistant pneumonia due to Staphylococcus aureus
-3,3,"Asthma, unspecified type, unspecified"
-4,4,Solitary pulmonary nodule
-5,5,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-6,6,Attention deficit disorder with hyperactivity
-7,7,Hypoxemia
-8,8,"Dysphagia, oropharyngeal phase"
-9,9,"Dysphagia, oropharyngeal phase"
+0,0,Methicillin resistant pneumonia due to Staphylococcus aureus
+1,1,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+2,2,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+3,3,"Dysphagia, oropharyngeal phase"
+4,4,Methicillin resistant pneumonia due to Staphylococcus aureus
+5,5,Solitary pulmonary nodule
+6,6,"Asthma, unspecified type, unspecified"
+7,7,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+8,8,"Asthma, unspecified type, unspecified"
+9,9,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"

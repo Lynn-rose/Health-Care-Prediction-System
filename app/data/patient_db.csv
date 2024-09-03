@@ -1,0 +1,11 @@
+patient_id,name,age,gender,insurance,maritalStatus,race,adm_id,type,location,weight,bp_systolic,bp_diastolic,drug,diagnosis
+0,Sandra Mcmahon,74,F,Medicare,WIDOWED,HISPANIC OR LATINO,0,AMBULATORY OBSERVATION,PACU,70,147,86,Nephrocaps,Methicillin resistant pneumonia due to Staphylococcus aureus
+1,Charles Long,15,M,Medicare,WIDOWED,HISPANIC/LATINO - SALVADORAN,1,DIRECT OBSERVATION,EMERGENCY ROOM,118,185,118,Midodrine,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+2,Lisa Campos,25,F,Medicaid,MARRIED,BLACK/CAPE VERDEAN,2,SURGICAL SAME DAY ADMISSION,PROCEDURE SITE,86,154,88,Nephrocaps,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+3,Joanna King,54,F,Medicaid,MARRIED,WHITE,3,DIRECT OBSERVATION,CLINIC REFERRAL,98,105,100,Ondansetron,"Dysphagia, oropharyngeal phase"
+4,Jason Perez,22,M,Other,DIVORCED,UNABLE TO OBTAIN,4,ELECTIVE,PACU,84,175,60,OxyCODONE (Immediate Release),Methicillin resistant pneumonia due to Staphylococcus aureus
+5,Megan Weber,1,F,Medicare,MARRIED,BLACK/AFRICAN AMERICAN,5,AMBULATORY OBSERVATION,INFORMATION NOT AVAILABLE,76,141,75,Sodium Chloride,Solitary pulmonary nodule
+6,Adam Farmer,15,M,Medicaid,SINGLE,BLACK/CAPE VERDEAN,6,DIRECT EMER.,TRANSFER FROM SKILLED NURSING FACILITY,79,128,108,Nicotine Polacrilex,"Asthma, unspecified type, unspecified"
+7,Alexis Harris,24,F,Medicaid,SINGLE,WHITE - OTHER EUROPEAN,7,EW EMER.,PHYSICIAN REFERRAL,105,139,94,OxyCODONE (Immediate Release),"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+8,Robert Peters,61,M,Other,MARRIED,BLACK/CAPE VERDEAN,8,EW EMER.,PACU,115,153,108,Multivitamins W/minerals,"Asthma, unspecified type, unspecified"
+9,Kayla Peters,37,F,Medicaid,SINGLE,PATIENT DECLINED TO ANSWER,9,ELECTIVE,EMERGENCY ROOM,114,165,99,OLANZapine,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"

@@ -1,9 +1,11 @@
 import pickle
+from fastapi.responses import JSONResponse
 import uvicorn
 import pandas as pd
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi import FastAPI, HTTPException, Form, Request
+from fastapi import FastAPI, HTTPException, Form, Query, Request
+from pydantic import BaseModel
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -24,6 +26,7 @@ with open('./data/death_preprocessor.pkl', 'rb') as file:
 with open('./data/readmission_preprocessor.pkl', 'rb') as file:
     readmission_preprocessor = pickle.load(file)
 
+# Load the CSV files
 patients = pd.read_csv("app/data/patients.csv")
 beds = pd.read_csv("app/data/beds.csv")
 staff = pd.read_csv("app/data/staff.csv")
@@ -31,6 +34,7 @@ admissions = pd.read_csv("app/data/admissions.csv")
 prescriptions = pd.read_csv("app/data/prescriptions.csv")
 diagnoses = pd.read_csv("app/data/diagnoses.csv")
 omr = pd.read_csv("app/data/omr.csv")
+patients_df = pd.read_csv("app/data/patient_db.csv")
 
 with open('app/data/marital_statuses.pkl', 'rb') as file:
     marital_statuses = pickle.load(file)
@@ -130,6 +134,19 @@ async def dashboard(request: Request):
         "patients_tomorrow_percentage": patient_count_predictions[0] / n_patients * 100,
         "patients_2days_percentage": patient_count_predictions[1] / n_patients * 100,
     })
+
+@app.get("/get_patient_data")
+async def get_patient_data(patient_id: int):
+    # Search for the patient by ID
+    patient_data = patients_df[patients_df['patient_id'] == patient_id]
+    
+    if patient_data.empty:
+        raise HTTPException(status_code=404, detail="Patient not found")
+    
+    # Convert the patient data to a dictionary
+    patient_data = patient_data.to_dict(orient="records")[0]
+    
+    return JSONResponse(content=patient_data)
 
 def predict_patient_counts(current, days):
     patient_count = current
