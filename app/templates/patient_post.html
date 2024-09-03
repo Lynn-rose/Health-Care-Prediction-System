@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HCPS - Health Care Prediction System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+
+    </head>
+    <body >href
+        <div >
+            <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="/" class="w3-bar-item w3-button w3-wide">
+                <img src="images/logo-l.png" alt="logo" class='logo'>
+            </a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a ="/" class="w3-bar-item w3-button"><i class="fa fa-home"></i>Home</a>
+                <a href="/dashboard" class="w3-bar-item w3-button"><i class="fa fa-desktop"></i> DEMO</a>
+                <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+        </div>
+
+        
+        <div class="w3-container w3-light-grey " style="padding:128px 16px; justify-content: center; align-items: center;" id="form-container">
+            <div class='w3-white w3-card w3-padding w3-margin-bottom'>
+                <h1>HCPS API</h1>
+                <h2>Predictions</h2>
+                    <p>
+                        Get prediction by feeding patient medical data <br><br>
+                        Data expected is:
+                        <ul>
+                            <li>age: Number</li>
+                            <hr>
+                            <li>drug: String</li>
+                            <hr>
+                            <li>diagnosis: String</li>
+                            <hr>
+                            <li>gender: String (M, F)</li>
+                            <hr>
+
+                            <li>
+                                admission_type: String ('URGENT', 'ELECTIVE', 'EW EMER.', 'DIRECT EMER.', 'EU OBSERVATION',
+                                'OBSERVATION ADMIT', 'DIRECT OBSERVATION',
+                                'AMBULATORY OBSERVATION', 'SURGICAL SAME DAY ADMISSION')
+                            </li>
+                            <hr>
+
+                            <li>
+                                admission_location: String ('TRANSFER FROM HOSPITAL', 'TRANSFER FROM SKILLED NURSING FACILITY',
+                                'INTERNAL TRANSFER TO OR FROM PSYCH', 'PHYSICIAN REFERRAL',
+                                'EMERGENCY ROOM', 'PACU', 'PROCEDURE SITE',
+                                'WALK-IN/SELF REFERRAL', 'INFORMATION NOT AVAILABLE',
+                                'CLINIC REFERRAL')
+                            </li>
+                            <hr>
+
+                            <li>insurance: String ('Medicaid', 'Medicare', 'Other')</li>
+                            <hr>
+
+                            <li>marital_status: String ('SINGLE', 'MARRIED', 'DIVORCED', 'WIDOWED')</li>
+                            <hr>
+
+                            <li>race: String ('BLACK/CAPE VERDEAN', 'HISPANIC/LATINO - PUERTO RICAN', 'WHITE',
+                                'UNKNOWN', 'OTHER', 'BLACK/AFRICAN AMERICAN',
+                                'HISPANIC/LATINO - SALVADORAN', 'UNABLE TO OBTAIN',
+                                'WHITE - OTHER EUROPEAN', 'PORTUGUESE', 'HISPANIC/LATINO - CUBAN',
+                                'PATIENT DECLINED TO ANSWER', 'WHITE - BRAZILIAN',
+                                'HISPANIC OR LATINO')
+                            </li>
+                            <hr>
+
+                            <li>weight: Number</li>
+                            <hr>
+
+                            <li>bp_systolic: Number</li>
+                            <hr>
+
+                            <li>bp_diastolic: Number</li>
+                        </ul>
+                    </p>
+            </div>
+            <div class='w3-white w3-row-padding w3-center w3-card' style='width: 80%;'>
+                <h2>Demo</h2>
+                <div class='w3-half'>
+                    <h2>Medical Data Form</h2>
+                    <form id="medical-form">
+                        <table>
+                            <tr>
+                                <td style='text-align: left;'>Age:</td>
+                                <td><input type="number" name="age" style='width:100%' required></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Prescription:</td>
+                                <td style='text-align: left;'><input type="text" name="prescription" style='width:100%' required></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Diagnosis:</td>
+                                <td style='text-align: left;'><input type="text" name="diagnosis" style='width:100%' required></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Gender:</td>
+                                <td style='text-align: left;'>
+                                    <select name="gender" required class='w3-padding' style='width: 100%;'>
+                                        {% for code, name in genders.items() %}
+                                            <option value="{{ code }}">{{ name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Admission Type:</td>
+                                <td style='text-align: left;'>
+                                    <select name="admission_type" required class='w3-padding' style='width: 100%;'>
+                                        {% for type in admission_types %}
+                                            <option value="{{type}}">{{type}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Admission Location:</td>
+                                <td style='text-align: left;'>
+                                    <select name="admission_location" required class='w3-padding' style='width: 100%;'>
+                                        {% for location in admission_locations %}
+                                            <option value="{{location}}">{{location}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Insurance:</td>
+                                <td style='text-align: left;'>
+                                    <select name="insurance" required class='w3-padding' style='width: 100%;'>
+                                        {% for insurance in insurance_types %}
+                                            <option value="{{insurance}}">{{insurance}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Marital Status:</td>
+                                <td style='text-align: left;'>
+                                    <select name="marital_status" required class='w3-padding' style='width: 100%;'>
+                                        {% for status in marital_statuses %}
+                                            <option value="{{status}}">{{status}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Race:</td>
+                                <td style='text-align: left;'>
+                                    <select name="race" required class='w3-padding' style='width: 100%;'>
+                                        {% for race in races %}
+                                            <option value="{{race}}">{{race}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>Weight:</td>
+                                <td style='text-align: left;'><input type="number" step="0.1" name="weight" style='width:100%' required></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>BP Systolic:</td>
+                                <td style='text-align: left;'><input type="number" name="bp_systolic" style='width:100%' required></td>
+                            </tr>
+                            <tr>
+                                <td style='text-align: left;'>BP Diastolic:</td>
+                                <td style='text-align: left;'><input type="number" name="bp_diastolic" style='width:100%' required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">
+                                    <input type="button" value="Submit" class='w3-button w3-green w3-padding-large w3-large 
+                                    w3-margin-top w3-hover-opacity' onclick="submitForm()">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class='w3-half'>
+                    <div id="result">
+                        <!-- Predictions will be displayed here -->
+                         <h2>Predictions</h2>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <footer class="w3-center w3-black w3-padding-64">
+            <div class="w3-xlarge w3-section">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-github w3-hover-opacity"></i>
+            </div>
+            <p>
+                © 2024 | HCPS - Health Care Prediction System. All rights reserved.
+            </p>
+        </footer>
+        <script>
+        async function submitForm() 
+        {
+            const form = document.getElementById('medical-form');
+            const formData = new FormData(form);
+            console.log(formData)
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            document.getElementById('result').innerHTML = `
+                <h3 class="w3-margin-bottom">Prediction Results:</h3>
+                <table class="w3-padding w3-large">
+                    <tr>
+                        <td style='text-align: left;' class="bold">Length of stay</td>
+                        <td style='text-align: right';>${data.los} days</td>    
+                    </tr>
+                    <tr>
+                        <td style='text-align: left;' class="bold">Readmission Likely</td>
+                        <td>${data.readmission}</td>    
+                    </tr>
+                    <tr>
+                        <td style='text-align: left;' class="bold">Death Risk</td>
+                        <td>${data.death}</td>    
+                    </tr>
+                <table>
+            `;
+        }
+        </script>
+    </body>
+</html>

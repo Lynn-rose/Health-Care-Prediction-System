@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HCPS - Health Care Prediction System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+
+    </head>
+    <body>
+
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="#home" class="w3-bar-item w3-button w3-wide">
+                <img src="images/logo-l.png" alt="logo" class='logo'>
+            </a>
+            <!-- Right-sided navbar links -->
+                <div class="w3-right w3-hide-small">
+                <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-gears"></i>ABOUT</a>
+                <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+                <a href="/dashboard" class="w3-bar-item w3-button"><i class="fa fa-desktop"></i> DEMO</a>
+                <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        </div>
+
+        <!-- Sidebar on small screens when clicking the menu icon -->
+            <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+            <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+            <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+            <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+            <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+        </nav>
+
+        <!-- Header with full-height image -->
+        <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+            <div class="w3-display-left w3-text-white" style="padding:48px">
+                <span class="w3-jumbo w3-hide-small">HCPS</span><br>
+                <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+                <span class="w3-large bold">
+                    The Health Care Prediction System <br>
+                    revolutionizes and streamlines hospital resource allocation <br>
+                    by predicting patient outcomes and giving actionable insights.
+                </span>
+                <p>
+                    <a href="/dashboard" class="w3-button w3-green w3-padding-large w3-large w3-margin-top w3-hover-opacity" style='width:300px'>
+                        Dashboard
+                    </a>
+                </p>
+                <p>
+                    <a href="/patient_post" class="w3-button w3-green w3-padding-large w3-large w3-margin-top w3-hover-opacity" style='width:300px'>
+                        API
+                    </a>
+                </p>
+            </div> 
+            <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <a href='github.com'><i class="fa fa-github w3-hover-opacity"></i></a>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <div class="w3-container" style="padding:128px 16px" id="about">
+            <h3 class="w3-center">ABOUT THE SYSTEM</h3>
+            <p class="w3-center w3-large">What it does</p>
+            <div class="w3-row-padding w3-center" style="margin-top:64px">
+                <div class="w3-quarter">
+                    <i class="fa fa-drivers-license w3-margin-bottom w3-jumbo w3-center"></i>
+                    <p class="w3-large">Feed</p>
+                    <p>
+                        Feed patient, staff and inventory data into the system
+                    </p>
+                </div>
+                <div class="w3-quarter">
+                    <i class="fa fa-microchip w3-margin-bottom w3-jumbo"></i>
+                    <p class="w3-large">Predict</p>
+                    <p>
+                        HCPS breaks down the data and makes calculations and comes to a conclusion
+                    </p>
+                </div>
+                <div class="w3-quarter">
+                    <i class="fa fa-th-list w3-margin-bottom w3-jumbo"></i>
+                    <p class="w3-large">Present</p>
+                    <p>
+                        HCPS then shares its findings in an easily digestable way
+                    </p>
+                </div>
+                <div class="w3-quarter">
+                    <i class="fa fa-balance-scale w3-margin-bottom w3-jumbo"></i>
+                    <p class="w3-large">Adjust</p>
+                    <p>
+                        Based on the predictions changes in resource allocation can be made with confidence
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Products Section -->
+        <div class="w3-container" style="padding:128px 16px" id="about">
+            <h3 class="w3-center">PRODUCTS</h3>
+            <p class="w3-center w3-large">What we offer</p>
+            <div class="w3-row-padding w3-center" style="margin-top:64px">
+                <div class="w3-half">
+                    <i class="fa fa-comment w3-margin-bottom w3-jumbo w3-center"></i>
+                    <p class="w3-large">API</p>
+                    <p>
+                        <strong>API access:</strong> Call HCPS with your own data and get predictions. <br>
+                        <a href="/patient_post" class="w3-button w3-green w3-padding-large w3-large w3-margin-top w3-hover-opacity" style='width:300px'>
+                            API Demo
+                        </a>
+                    </p>
+                </div>
+                <div class="w3-half">
+                    <i class="fa fa-database w3-margin-bottom w3-jumbo"></i>
+                    <p class="w3-large">DASHBOARD INTEGRATION</p>
+                    <p>
+                        <strong>Dashboard Access:</strong> Integration our HCPS dashboard into your existing system. Supercharge your services immediately. <br>
+                        <a href="/dashboard" class="w3-button w3-green w3-padding-large w3-large w3-margin-top w3-hover-opacity" style='width:300px'>
+                            Dashboard Demo
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promo Section-->
+        <div class="w3-container w3-light-grey" style="padding:128px 16px">
+        <div class="w3-row-padding">
+            <div class="w3-col m6">
+            <h3>Stop wasting resources instantly!</h3>
+            <p>
+                With HCPS's help, resource allocation problems are a thing of the past. <br>Gain a clear view of your needs in the
+                near future and be well prepared <br> to meet them. This is the start of anew era.
+            </p>
+            <p><a href="/dashboard" class="w3-button w3-black"><i class="fa fa-desktop"> </i> See How It Works</a></p>
+            </div>
+            <div class="w3-col m6">
+            <img class="w3-image w3-round-large" src="images/preview (3).webp" alt="robot" width="700" height="394">
+            </div>
+        </div>
+        </div>
+
+        <!-- Prediction Section -->
+        <div class="w3-container w3-light-grey w3-padding-64">
+            <div class="w3-row-padding">
+                <div class="w3-col m6">
+                <h3>HCPS's Prediction Accuracy</h3>
+                <p>Although not yet perfect, HCPS is good at predicting certain factors about a patient's admission.</p>
+                <p>This will only improve over time as the model is retrained and fed new data.</p>
+                </div>
+                <div class="w3-col m6">
+                <p class="w3-wide"><i class="fa fa-exclamation-triangle"></i>Death</p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-green w3-center bold w3-animate-right" style="width:97%">97%</div>
+                </div>
+                <p class="w3-wide"><i class="fa fa-undo"></i>Readmission</p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-green w3-center bold w3-animate-right" style="width:84%">80%</div>
+                </div>
+                <p class="w3-wide"><i class="fa fa-bed"></i>Length of stay</p>
+                <div class="w3-grey">
+                    <div class="w3-container w3-green w3-center bolds w3-animate-right" style="width:78%">77%</div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="w3-container" style="padding:128px 16px" id="team">
+            <h3 class="w3-center">THE TEAM</h3>
+            <p class="w3-center w3-large">Meet the minds behind HCPS</p>
+            <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-card">
+                        <img src="../static/images/doc-2.webp" alt="lynn" style="width:100%">
+                        <div class="w3-container">
+                            <h3>Lynn Rose</h3>
+                            <p class="w3-opacity">Analysis & Design</p>
+                        </div>
+                    </div>
+                </div>
+               
+
+        <!-- Contact Section -->
+        <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+        <h3 class="">CONTACT</h3>
+        <p class="w3-large">Lets get in touch. Send us a message:</p>
+        <div style="margin-top:48px">
+            
+            <form action="/action_page.php" target="_blank" form id="getMessage">
+            <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+            <p><textarea class="w3-input w3-border" placeholder="Message" required name="Message"></textarea></p>
+            <p>
+                <button class="w3-button w3-black" type="submit">
+                <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                </button>
+            </p>
+            </form>
+            <script>
+                // JavaScript to handle form submission
+                document.getElementById('getMessage').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the form from submitting
+
+                    // Display an alert
+                    alert('Message submitted successfully!');
+
+                    // Optionally, you can submit the form here if needed
+                    this.submit();
+                    // Clear the form fields
+                    this.reset();
+                    // Redirect to the home page (or any other page)
+                    window.location.href = 'index.html'; 
+                });
+            </script>
+        </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-center w3-black w3-padding-64">
+            <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+            <div class="w3-xlarge w3-section">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-github w3-hover-opacity"></i>
+            </div>
+            <p>
+                © 2024 | HCPS - Health Care Prediction System. All rights reserved.
+            </p>
+        </footer>
+        
+        <script>
+            var mySidebar = document.getElementById("mySidebar");
+
+            function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+            } else {
+                mySidebar.style.display = 'block';
+            }
+            }
+            // Close the sidebar with the close button
+            function w3_close() {
+                mySidebar.style.display = "none";
+            }
+        </script>
+
+    </body>
+</html>

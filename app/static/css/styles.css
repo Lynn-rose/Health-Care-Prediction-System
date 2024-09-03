@@ -1,0 +1,64 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/land-1.webp");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+img.logo
+{
+    height: 30px;
+    width: auto;
+}
+img.logo-l
+{
+    height: 80px;
+    width: auto;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.patient-record
+{
+  display: flex;
+  vertical-align: middle;
+  min-height: 150px;
+  line-height: 150px;
+}
+
+img.record-picture
+{
+  height: 170px !important;
+  width: auto;
+
+}
+
+img.avatar
+{
+  width: 300px;
+  height: auto;
+}
+
+.left-align 
+{
+  text-align: left !important;
+}
+.form-table td 
+{
+  padding: 8px;
+}
