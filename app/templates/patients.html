@@ -43,7 +43,14 @@
 
             <div class="w3-panel">
                 <div class="w3-row-padding" style="margin:0 -16px">
-                    <div class="w3-container w3-half w3-animate-left">
+
+                    <!-- Search Bar -->
+                    <div class="w3-container w3-padding">
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="patientSearch" onkeyup="searchPatients()" placeholder="Search for patients by name, gender, or insurance...">
+                    </div>
+
+                    <!-- LEFT HALF -->
+                    <div class="w3-container w3-half w3-animate-left" id="patientList">
                         {% for patient in patients %}
                         <form action="" id='insight-form-{{patient.patient_id}}'>
                             <input type="hidden" name='name' value='{{patient.name}}'>
@@ -110,7 +117,7 @@
                                 <p id='insight-readmission'>test</p>
                             </div>
                             <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Death Risk</h5>
+                                <h5 class='w3-paddingt bold'>Adverse Case</h5>
                                 <p id='insight-death'>test</p>
                             </div>
                         </div>
@@ -132,11 +139,10 @@
         </div>
 
         <script>
-            function show_insight(id)
-            {
+            function show_insight(id) {
                 console.log(id)
                 var div = document.getElementById('insight-div');
-                var insight_form = document.getElementById("insight-form-"+id)
+                var insight_form = document.getElementById("insight-form-" + id)
                 var form_data = new FormData(insight_form)
 
                 name_text = document.getElementById("insight-name")
@@ -153,13 +159,14 @@
                 readm_text.innerHTML = form_data.get("readmission")
                 death_text.innerHTML = form_data.get("death")
 
-                if(div.style.display === "none")
+                if (div.style.display === "none")
                     div.style.display = "block"
             }
-            function hide_insight()
-            {
+
+            function hide_insight() {
                 document.getElementById('insight-div').style.display = "none";
             }
+
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
 
@@ -167,8 +174,7 @@
             var overlayBg = document.getElementById("myOverlay");
 
             // Toggle between showing and hiding the sidebar, and add overlay effect
-            function w3_open() 
-            {
+            function w3_open() {
                 if (mySidebar.style.display === 'block') {
                     mySidebar.style.display = 'none';
                     overlayBg.style.display = "none";
@@ -176,12 +182,31 @@
                     mySidebar.style.display = 'block';
                     overlayBg.style.display = "block";
                 }
-                }
+            }
 
-                // Close the sidebar with the close button
-                function w3_close() {
+            // Close the sidebar with the close button
+            function w3_close() {
                 mySidebar.style.display = "none";
                 overlayBg.style.display = "none";
+            }
+
+            // Function to search and filter patients
+            function searchPatients() {
+                var input, filter, container, records, name, i, txtValue;
+                input = document.getElementById('patientSearch');
+                filter = input.value.toUpperCase();
+                container = document.getElementById('patientList');
+                records = container.getElementsByClassName('patient-record');
+
+                for (i = 0; i < records.length; i++) {
+                    name = records[i].getElementsByClassName('w3-large bold')[0];
+                    txtValue = name.textContent || name.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        records[i].style.display = "";
+                    } else {
+                        records[i].style.display = "none";
+                    }
+                }
             }
         </script>
 
