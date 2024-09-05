@@ -1,11 +1,31 @@
 prescription_id,adm_id,drug
-0,0,Nephrocaps
+0,0,Ondansetron
 1,1,Midodrine
-2,2,Nephrocaps
-3,3,Ondansetron
-4,4,OxyCODONE (Immediate Release)
-5,5,Sodium Chloride
-6,6,Nicotine Polacrilex
-7,7,OxyCODONE (Immediate Release)
-8,8,Multivitamins W/minerals
+2,2,Ondansetron
+3,3,OLANZapine
+4,4,Midodrine
+5,5,OLANZapine
+6,6,Ondansetron
+7,7,OLANZapine
+8,8,Nicotine Polacrilex
 9,9,OLANZapine
+10,10,Multivitamins W/minerals
+11,11,Nicotine Polacrilex
+12,12,Multivitamins W/minerals
+13,13,Nephrocaps
+14,14,OxyCODONE (Immediate Release)
+15,15,OxyCODONE (Immediate Release)
+16,16,Nephrocaps
+17,17,Midodrine
+18,18,Nicotine Polacrilex
+19,19,Sodium Chloride
+20,20,Ondansetron
+21,21,OLANZapine
+22,22,Sodium Chloride
+23,23,Nicotine Polacrilex
+24,24,OLANZapine
+25,25,Nephrocaps
+26,26,OLANZapine
+27,27,Sodium Chloride
+28,28,Ondansetron
+29,29,Nephrocaps

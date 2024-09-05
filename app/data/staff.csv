@@ -1,11 +1,21 @@
-staff_id,name,role,shift_start,shift_end
-0,Henry Moore,Nurse,13:16:56,20:26:04
-1,Shannon Reed,Nurse,00:26:27,09:57:44
-2,Monica White,Nurse,07:02:21,21:15:45
-3,Lisa May,Admin,19:46:15,07:12:00
-4,Madeline Harrison,Physician,23:23:21,23:03:24
-5,Mary Hill,Physician,05:39:03,21:32:42
-6,Katherine Joseph,Nurse,17:17:11,05:46:48
-7,Mrs. Laura Joseph,Admin,20:41:21,07:27:08
-8,Alexander Snyder,Admin,15:42:31,10:32:50
-9,Claire Harris,Admin,04:34:33,21:32:10
+staff_id,staff_name,role,shift_start,shift_end
+0,Cathy Anderson,Admin,05:15:29,22:01:47
+1,Tiffany Strickland,Admin,03:40:41,15:06:58
+2,Melanie Miller,Physician,00:30:45,05:04:32
+3,Christopher Greene,Physician,05:04:56,22:43:50
+4,Justin Reeves,Physician,01:56:10,02:25:59
+5,Patricia Pitts,Nurse,11:37:49,20:42:12
+6,Carlos Murray,Physician,04:10:39,18:55:23
+7,Michelle Dudley,Admin,02:34:54,11:00:50
+8,Taylor Miller,Admin,16:33:51,06:43:38
+9,Chad Bell,Admin,14:39:52,13:31:01
+10,Michaela Pena,Nurse,11:40:30,23:40:12
+11,Jason Roberts,Physician,06:31:42,22:30:06
+12,Emily Park,Nurse,15:10:14,12:06:28
+13,Heather Johnston,Nurse,01:13:03,07:10:32
+14,Stephanie Wagner,Admin,06:02:17,04:28:30
+15,Aaron Sanders,Admin,06:36:55,16:10:15
+16,John Martinez DVM,Nurse,10:03:41,23:27:27
+17,Timothy Myers,Nurse,09:13:44,22:04:41
+18,Christina Gardner,Nurse,03:08:04,01:51:09
+19,Kenneth Acevedo,Admin,22:19:16,19:07:41

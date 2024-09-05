@@ -1,11 +1,31 @@
 diagnosis_id,adm_id,diagnosis
-0,0,Methicillin resistant pneumonia due to Staphylococcus aureus
-1,1,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-2,2,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+0,0,Acute respiratory failure
+1,1,"Asthma, unspecified type, unspecified"
+2,2,Esophageal reflux
 3,3,"Dysphagia, oropharyngeal phase"
-4,4,Methicillin resistant pneumonia due to Staphylococcus aureus
-5,5,Solitary pulmonary nodule
+4,4,Solitary pulmonary nodule
+5,5,Hypoxemia
 6,6,"Asthma, unspecified type, unspecified"
-7,7,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-8,8,"Asthma, unspecified type, unspecified"
+7,7,"Asthma, unspecified type, unspecified"
+8,8,"Dysphagia, oropharyngeal phase"
 9,9,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+10,10,"Asthma, unspecified type, unspecified"
+11,11,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+12,12,Methicillin resistant pneumonia due to Staphylococcus aureus
+13,13,Solitary pulmonary nodule
+14,14,"Dysphagia, oropharyngeal phase"
+15,15,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+16,16,"Urinary tract infection, site not specified"
+17,17,Attention deficit disorder with hyperactivity
+18,18,"Asthma, unspecified type, unspecified"
+19,19,Methicillin resistant pneumonia due to Staphylococcus aureus
+20,20,Solitary pulmonary nodule
+21,21,Attention deficit disorder with hyperactivity
+22,22,Methicillin resistant pneumonia due to Staphylococcus aureus
+23,23,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+24,24,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+25,25,Esophageal reflux
+26,26,Solitary pulmonary nodule
+27,27,"Asthma, unspecified type, unspecified"
+28,28,Acute respiratory failure
+29,29,Esophageal reflux

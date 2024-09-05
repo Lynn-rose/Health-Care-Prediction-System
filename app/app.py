@@ -29,7 +29,7 @@ with open('./data/readmission_preprocessor.pkl', 'rb') as file:
 # Load the CSV files
 patients = pd.read_csv("app/data/patients.csv")
 beds = pd.read_csv("app/data/beds.csv")
-staff = pd.read_csv("app/data/staff.csv")
+staffs = pd.read_csv("app/data/staff.csv")
 admissions = pd.read_csv("app/data/admissions.csv")
 prescriptions = pd.read_csv("app/data/prescriptions.csv")
 diagnoses = pd.read_csv("app/data/diagnoses.csv")
@@ -111,7 +111,8 @@ def predict(
 @app.get("/dashboard")
 async def dashboard(request: Request):
     free_beds = beds[beds.adm_id.isna()].shape[0]
-    doctors = staff[(staff.role == "Physician") | (staff.role == "Nurse")].shape[0]
+    doctors = staffs[(staffs.role == "Physician")].shape[0]
+    nurses = staffs[(staffs.role == "Nurse")].shape[0]
     n_patients = admissions[admissions.adm_id.isin(beds.adm_id)].shape[0]
     get_all_patient_predictions()
     patient_count_predictions = predict_patient_counts(n_patients, 2)
@@ -120,10 +121,11 @@ async def dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", context={
         "request": request,
         "beds": beds.to_dict(orient="records"),
-        "staff": staff.to_dict(orient="records"),
+        "staffs": staffs.to_dict(orient="records"),
         "patients": patients.to_dict(orient="records"),
         "free_beds": free_beds,
         "doctors": doctors,
+        "nurses": nurses,
         "n_patients": n_patients,
         "death_risks": patients[patients.death == True].shape[0],
         "readmission_risks": patients[patients.readmission == True].shape[0],
@@ -169,6 +171,22 @@ async def view_patients(request: Request):
     get_all_patient_predictions()
     return templates.TemplateResponse("patients.html", context={
         "request": request, "patients": patients_temp
+    })
+
+@app.get("/staff")
+async def staff(request: Request):
+    staff_temp = staffs.to_dict(orient="records")
+    get_all_staff()
+    doctors = staffs[(staffs.role == "Physician")].shape[0]
+    nurses = staffs[(staffs.role == "Nurse")].shape[0]
+    admin = staffs[(staffs.role == "Admin")].shape[0]
+    
+    return templates.TemplateResponse("staff.html", context={
+        "request": request,
+        "staffs": staff_temp,
+        "doctors": doctors,
+        "nurses": nurses,
+        "admin": admin,
     })
 
 ###################################
@@ -224,6 +242,22 @@ def get_all_patient_predictions():
     patients["drug"] = drugs
     patients["diagnosis"] = diag
     print(patients.iloc[0])
+
+def get_all_staff():
+    name = []
+    shift_start = []
+    shift_end = []
+    for i in range(len(staffs)):
+        staff_id = staffs.iloc[i]['staff_id']
+        name.append(staffs.iloc[i].staff_name)
+        shift_start.append(staffs.iloc[i].shift_start)
+        shift_end.append(staffs.iloc[i].shift_end)
+        #print(df.columns)
+        
+    staffs["staff_name"] = name
+    staffs["shift_start"] = shift_start
+    staffs["shift_end"] = shift_end
+    print(staffs.iloc[i])
 
 def predict_los(patient_data):
     patient_data_transformed = los_preprocessor.transform(patient_data)

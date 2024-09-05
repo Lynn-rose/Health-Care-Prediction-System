@@ -24,8 +24,8 @@
             <div class="w3-bar-block">
                 <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
                 <a href="/dashboard" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
-                <a href="/patients" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-eye fa-fw"></i>  Patients</a>
-                <a href="/staff" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Staff</a>
+                <a href="/patients" class="w3-bar-item w3-button w3-padding "><i class="fa fa-eye fa-fw"></i>  Patients</a>
+                <a href="/staff" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-users fa-fw"></i>  Staff</a>
                 <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
             </div>
         </nav>
@@ -41,45 +41,75 @@
                 <h5><b><i class="fa fa-dashboard"></i> Staff</b></h5>
             </header>
 
+            <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-third">
+                    <div class="w3-container w3-blue w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-user-circle w3-xxlarge"></i></div>
+                        <div class="w3-right">
+                        <h3>{{admin}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Admin</h4>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-teal w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-user-md w3-xxlarge"></i></div>
+                        <div class="w3-right">
+                        <h3>{{nurses}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Nurses</h4>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-green w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-user-md w3-xxlarge"></i></div>
+                        <div class="w3-right">
+                        <h3>{{doctors}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Doctors</h4>
+                    </div>
+                </div>
+
             <div class="w3-panel">
                 <div class="w3-row-padding" style="margin:0 -16px">
 
                     <!-- Search Bar -->
                     <div class="w3-container w3-padding">
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="patientSearch" onkeyup="searchPatients()" placeholder="Search for patients by name, gender, or insurance...">
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="staffSearch" onkeyup="searchStaff)" placeholder="Search for staff by name...">
                     </div>
 
                     <!-- LEFT HALF -->
-                    <div class="w3-container w3-half w3-animate-left" id="patientList">
-                        {% for patient in patients %}
-                        <form action="" id='insight-form-{{patient.patient_id}}'>
-                            <input type="hidden" name='name' value='{{patient.name}}'>
-                            <input type="hidden" name='diagnosis' value='{{patient.diagnosis}}'>
-                            <input type="hidden" name='prescription' value='{{patient.drug}}'>
-                            <input type="hidden" name='readmission' value='{{patient.readmission}}'>
-                            <input type="hidden" name='death' value='{{patient.death}}'>
-                            <input type="hidden" name='los' value='{{patient.los}}'>
-
+                    <div class="w3-container w3-half w3-animate-left" id="staffList">
+                        {% for staff in staffs %}
+                        <form action="" id='insight-form-{{staff.staff_id}}'>
+                            <input type="hidden" name='name' value='{{staff.staff_name}}'>
+                            <input type="hidden" name='role' value='{{staff.role}}'
+                            <input type="hidden" name='shift_start' value='{{staff.shift_start}}'>
+                            <input type="hidden" name='shift_end' value='{{staff.shift_end}}'>
+                        
                             <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
-                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{patient.patient_id}}')">
+                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{staff.staff_id}}')">
                                 Insights
                             </a>
                         </form>
                             <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
                                 <div >
-                                    <img src="images/robot.webp" alt="{{patient.name}}" class='record-picture'>
+                                    <img src="images/robot.webp" alt="{{staff.staff_name}}" class='record-picture'>
                                 </div>
                                 <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
-                                    {{patient.name}}
+                                    {{staff.staff_name}}
                                 </div>
                                 <div class='w3-margin-right w3-padding'>
-                                    {{patient.gender}}
+                                    {{staff.role}}
                                 </div>
                                 <div class='w3-margin-right w3-padding'>
-                                    {{patient.age}}
+                                    {{staff.shift_start}}
                                 </div>
                                 <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
-                                    {{patient.insurance}}
+                                    {{staff.shift_end}}
                                 </div>
                             </div>
                             
@@ -134,7 +164,7 @@
             </footer>
         <!-- End page content -->
          <form name='insight-form' action="">
-            <input type="hidden" name='patient_id'>
+            <input type="hidden" name='staff_id'>
          </form>
         </div>
 
@@ -190,24 +220,30 @@
                 overlayBg.style.display = "none";
             }
 
-            // Function to search and filter patients
-            function searchPatients() {
-                var input, filter, container, records, name, i, txtValue;
-                input = document.getElementById('patientSearch');
-                filter = input.value.toUpperCase();
-                container = document.getElementById('patientList');
-                records = container.getElementsByClassName('patient-record');
-
-                for (i = 0; i < records.length; i++) {
-                    name = records[i].getElementsByClassName('w3-large bold')[0];
-                    txtValue = name.textContent || name.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        records[i].style.display = "";
+            // Function to search and filter staff
+            function searchStaff() {
+                // Get the value from the search input
+                var input = document.getElementById("staffSearch");
+                var filter = input.value.toLowerCase();
+                
+                // Get all staff record elements
+                var staffList = document.getElementById("staffList");
+                var staffCards = staffList.getElementsByClassName("patient-record");
+                
+                // Loop through all staff records and hide those that don't match the query
+                for (var i = 0; i < staffCards.length; i++) {
+                    var staffName = staffCards[i].getElementsByClassName("w3-large")[0].textContent;
+                    
+                    if (staffName.toLowerCase().indexOf(filter) > -1) {
+                        staffCards[i].style.display = "";
                     } else {
-                        records[i].style.display = "none";
+                        staffCards[i].style.display = "none";
                     }
                 }
             }
+        
+            // Attach the searchStaff function to the search input field
+            document.getElementById("staffSearch").onkeyup = searchStaff;
         </script>
 
     </body>
