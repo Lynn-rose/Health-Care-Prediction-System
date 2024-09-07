@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <style>
             html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -25,8 +26,8 @@
                 <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
                 <a href="/dashboard" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
                 <a href="/patients" class="w3-bar-item w3-button w3-padding "><i class="fa fa-eye fa-fw"></i>  Patients</a>
-                <a href="/staff" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-users fa-fw"></i>  Staff</a>
-                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
+                <a href="/staff" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Staff</a>
+                <a href="/inventory" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
             </div>
         </nav>
 
@@ -38,165 +39,82 @@
         <div class="w3-main" style="margin-left:300px;">
             <!-- Header -->
             <header class="w3-container" style="padding-top:22px">
-                <h5><b><i class="fa fa-dashboard"></i> Staff</b></h5>
+                <h5><b><i class="fa fa-dashboard"></i> Inventory</b></h5>
             </header>
 
             <div class="w3-row-padding w3-margin-bottom">
                 <div class="w3-third">
                     <div class="w3-container w3-blue w3-padding-16">
-                        <div class="w3-left"><i class="fa fa-user-circle w3-xxlarge"></i></div>
+                        <div class="w3-left"><i class="	fa fa-wheelchair w3-xxlarge"></i></div>
                         <div class="w3-right">
-                        <h3>{{admin}}</h3>
+                        <h3>{{medical_equipment}}</h3>
                         </div>
                         <div class="w3-clear"></div>
-                        <h4>Admin</h4>
+                        <h4>Medical Equipment</h4>
                     </div>
                 </div>
                 <div class="w3-third">
                     <div class="w3-container w3-teal w3-padding-16">
-                        <div class="w3-left"><i class="fa fa-user-md w3-xxlarge"></i></div>
+                        <div class="w3-left"><i class="	fa fa-stethoscope w3-xxlarge"></i></div>
                         <div class="w3-right">
-                        <h3>{{nurses}}</h3>
+                        <h3>{{pharmaceuticals}}</h3>
                         </div>
                         <div class="w3-clear"></div>
-                        <h4>Nurses</h4>
+                        <h4>Pharmaceuticals</h4>
                     </div>
                 </div>
                 <div class="w3-third">
                     <div class="w3-container w3-green w3-padding-16">
-                        <div class="w3-left"><i class="fa fa-user-md w3-xxlarge"></i></div>
+                        <div class="w3-left"><i class=" fa fa-thermometer w3-xxlarge"></i></div>
                         <div class="w3-right">
-                        <h3>{{doctors}}</h3>
+                        <h3>{{surgical_tools}}</h3>
                         </div>
                         <div class="w3-clear"></div>
-                        <h4>Doctors</h4>
-                    </div>
-                </div>
-
-            <div class="w3-panel">
-                <div class="w3-row-padding" style="margin:0 -16px">
-
-                    <!-- Search Bar -->
-                    <div class="w3-container w3-padding">
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="staffSearch" onkeyup="searchStaff)" placeholder="Search for staff by name...">
-                    </div>
-
-                    <!-- LEFT HALF -->
-                    <div class="w3-container w3-half w3-animate-left" id="staffList">
-                        {% for staff in staffs %}
-                        <form action="" id='insight-form-{{staff.staff_id}}'>
-                            <input type="hidden" name='name' value='{{staff.staff_name}}'>
-                            <input type="hidden" name='role' value='{{staff.role}}'
-                            <input type="hidden" name='shift_start' value='{{staff.shift_start}}'>
-                            <input type="hidden" name='shift_end' value='{{staff.shift_end}}'>
-                        
-                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
-                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{staff.staff_id}}')">
-                                Insights
-                            </a>
-                        </form>
-                            <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
-                                <div >
-                                    <img src="images/robot.webp" alt="{{staff.staff_name}}" class='record-picture'>
-                                </div>
-                                <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
-                                    {{staff.staff_name}}
-                                </div>
-                                <div class='w3-margin-right w3-padding'>
-                                    {{staff.role}}
-                                </div>
-                                <div class='w3-margin-right w3-padding'>
-                                    {{staff.shift_start}}
-                                </div>
-                                <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
-                                    {{staff.shift_end}}
-                                </div>
-                            </div>
-                            
-                        {% endfor %}
-                    </div>
-
-                    <!-- RIGHT HALF-->
-                    <div class='w3-half' style='position: fixed; right:0px; width: 42%; top:10%; display: none;' id='insight-div'>
-                        <div class="w3-container w3-margin-bottom">
-                            <div class='w3-white w3-card'>
-                                <div class='w3-container w3-padding ' style='padding-left: 0px;'>
-                                    <h4 id='insight-name' class='w3-paddingt bold'>Patient Name</h4>
-                                    <hr>
-                                </div>
-
-                                <div class='w3-padding'>
-                                    <label class='w3-padding-left bold w3-large'>Diagnosis:</label>
-                                    <p id='insight-diagnosis' class='w3-padding-right'>test</p>
-                                    <hr>
-                                </div>
-                                <div class='w3-padding'>
-                                    <label class='w3-padding-left bold w3-large'>Prescription:</label>
-                                    <p id='insight-prescription' class='w3-padding-right'>test</p>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w3-container w3-margin-bottom">
-                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Predicted Length of stay</h5>
-                                <p id='insight-los'>test</p>
-                            </div>
-                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Readmission Likely</h5>
-                                <p id='insight-readmission'>test</p>
-                            </div>
-                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Adverse Case</h5>
-                                <p id='insight-death'>test</p>
-                            </div>
-                        </div>
+                        <h4>Surgical Tools</h4>
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
+            <div class="w3-row-padding w3-margin-bottom">
+                <div class="w3-third">
+                    <div class="w3-container .w3-sand w3-padding-16">
+                        <div class="w3-left"><i class=" fa fa-thermometer w3-xxlarge"></i></div>
+                        <div class="w3-right">
+                        <h3>{{ppe}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>PPE</h4>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-khaki w3-padding-16">
+                        <div class="w3-left"><i class=" fa fa-medkit w3-xxlarge"></i></div>
+                        <div class="w3-right">
+                        <h3>{{cleaning_supplies}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Cleaning Supplies</h4>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container w3-lime w3-padding-16">
+                        <div class="w3-left"><i class=" fa fa-stethoscope w3-xxlarge"></i></div>
+                        <div class="w3-right">
+                        <h3>{{diagnostic_tools}}</h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Diagnostic Tools</h4>
+                    </div>
+                </div>
+            </div>
+                   
             <footer class="w3-container w3-padding-16 w3-light-grey">
                 <h4>HCPS DEMO</h4>
                 <p>
                     © 2024 | HCPS - Health Care Prediction System. All rights reserved.
                 </p>
             </footer>
-        <!-- End page content -->
-         <form name='insight-form' action="">
-            <input type="hidden" name='staff_id'>
-         </form>
         </div>
-
         <script>
-            function show_insight(id) {
-                console.log(id)
-                var div = document.getElementById('insight-div');
-                var insight_form = document.getElementById("insight-form-" + id)
-                var form_data = new FormData(insight_form)
-
-                name_text = document.getElementById("insight-name")
-                diag_text = document.getElementById("insight-diagnosis")
-                pres_text = document.getElementById("insight-prescription")
-                los_text = document.getElementById("insight-los")
-                readm_text = document.getElementById("insight-readmission")
-                death_text = document.getElementById("insight-death")
-
-                name_text.innerHTML = form_data.get("name")
-                diag_text.innerHTML = form_data.get("diagnosis")
-                pres_text.innerHTML = form_data.get("prescription")
-                los_text.innerHTML = form_data.get("los")
-                readm_text.innerHTML = form_data.get("readmission")
-                death_text.innerHTML = form_data.get("death")
-
-                if (div.style.display === "none")
-                    div.style.display = "block"
-            }
-
-            function hide_insight() {
-                document.getElementById('insight-div').style.display = "none";
-            }
-
             // Get the Sidebar
             var mySidebar = document.getElementById("mySidebar");
 
@@ -220,30 +138,7 @@
                 overlayBg.style.display = "none";
             }
 
-            // Function to search and filter staff
-            function searchStaff() {
-                // Get the value from the search input
-                var input = document.getElementById("staffSearch");
-                var filter = input.value.toLowerCase();
-                
-                // Get all staff record elements
-                var staffList = document.getElementById("staffList");
-                var staffCards = staffList.getElementsByClassName("patient-record");
-                
-                // Loop through all staff records and hide those that don't match the query
-                for (var i = 0; i < staffCards.length; i++) {
-                    var staffName = staffCards[i].getElementsByClassName("w3-large")[0].textContent;
-                    
-                    if (staffName.toLowerCase().indexOf(filter) > -1) {
-                        staffCards[i].style.display = "";
-                    } else {
-                        staffCards[i].style.display = "none";
-                    }
-                }
-            }
-        
-            // Attach the searchStaff function to the search input field
-            document.getElementById("staffSearch").onkeyup = searchStaff;
+            
         </script>
 
     </body>

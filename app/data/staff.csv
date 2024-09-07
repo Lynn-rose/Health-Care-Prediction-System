@@ -1,21 +1,21 @@
-staff_id,staff_name,role,shift_start,shift_end
-0,Cathy Anderson,Admin,05:15:29,22:01:47
-1,Tiffany Strickland,Admin,03:40:41,15:06:58
-2,Melanie Miller,Physician,00:30:45,05:04:32
-3,Christopher Greene,Physician,05:04:56,22:43:50
-4,Justin Reeves,Physician,01:56:10,02:25:59
-5,Patricia Pitts,Nurse,11:37:49,20:42:12
-6,Carlos Murray,Physician,04:10:39,18:55:23
-7,Michelle Dudley,Admin,02:34:54,11:00:50
-8,Taylor Miller,Admin,16:33:51,06:43:38
-9,Chad Bell,Admin,14:39:52,13:31:01
-10,Michaela Pena,Nurse,11:40:30,23:40:12
-11,Jason Roberts,Physician,06:31:42,22:30:06
-12,Emily Park,Nurse,15:10:14,12:06:28
-13,Heather Johnston,Nurse,01:13:03,07:10:32
-14,Stephanie Wagner,Admin,06:02:17,04:28:30
-15,Aaron Sanders,Admin,06:36:55,16:10:15
-16,John Martinez DVM,Nurse,10:03:41,23:27:27
-17,Timothy Myers,Nurse,09:13:44,22:04:41
-18,Christina Gardner,Nurse,03:08:04,01:51:09
-19,Kenneth Acevedo,Admin,22:19:16,19:07:41
+staff_id,staff_name,role,shift_start,shift_end,assigned_patients
+0,Jesse Bright,Physician,08:53:50,12:44:36,"['Eric Jordan', 'Kyle Cherry', 'Laura Taylor']"
+1,Alexander Moses,Nurse,07:24:26,02:58:01,"['Nicolas Nichols', 'Nancy Morgan', 'Jamie Villarreal', 'Timothy Snyder', 'John Waller']"
+2,Peter Smith,Admin,15:53:11,00:38:16,
+3,William Banks,Nurse,02:47:10,13:54:18,"['Andrew Oliver', 'Edward Blair', 'Kyle Cherry']"
+4,Valerie Reyes,Physician,14:30:48,14:09:21,"['Monica Phillips', 'Mary Robinson', 'Samantha Walker', 'Cynthia Adams DDS', 'Jamie Villarreal', 'Russell Jones', 'Brent Bryant', 'Kurt Welch', 'John Waller']"
+5,Dr. Karen Hull,Admin,17:47:56,10:50:24,
+6,Jennifer Dunlap,Nurse,14:44:46,08:26:30,"['Jeffrey Chung', 'Sandy Weaver', 'Tammy Watson', 'Andrew Compton']"
+7,Katie Wright,Physician,19:23:32,12:21:30,"['Brian Carrillo', 'Nicole Marshall', 'Edward Blair', 'Brent Murphy']"
+8,Victor Parker,Physician,20:09:59,15:14:42,"['Nicolas Nichols', 'Tammy Watson', 'Andrew Oliver', 'Johnathan Young', 'Andrew Compton', 'Michael Jacobson']"
+9,Teresa Alvarez,Admin,01:24:49,10:53:52,
+10,Sharon Armstrong,Nurse,19:38:39,18:56:54,"['Mary Robinson', 'Samantha Walker']"
+11,Vanessa Smith,Nurse,04:57:09,09:19:57,"['Brian Carrillo', 'Russell Jones']"
+12,Jennifer Baker,Nurse,09:52:49,15:29:20,['Johnathan Young']
+13,Jeff Miller,Admin,07:07:52,09:36:46,
+14,Jeremy Fitzgerald,Nurse,20:19:26,19:46:06,"['Brent Bryant', 'Brent Murphy']"
+15,Krystal Thomas,Nurse,11:49:03,07:53:59,"['Monica Phillips', 'Jacqueline Moore', 'Nicole Marshall', 'Corey Wright', 'Michael Jacobson']"
+16,Meghan Garrett,Nurse,10:28:11,08:32:22,"['Rhonda Davis', 'Kurt Welch', 'Ryan Simon']"
+17,Carlos Benton,Physician,11:45:07,20:21:25,"['Jeffrey Chung', 'Jacqueline Moore', 'Sandy Weaver', 'Nancy Morgan', 'Rhonda Davis', 'Timothy Snyder', 'Ryan Simon', 'Corey Wright']"
+18,Jared Melton DVM,Nurse,20:21:20,08:08:36,"['Eric Jordan', 'Cynthia Adams DDS', 'Laura Taylor']"
+19,Tiffany Diaz,Admin,07:58:54,11:14:12,

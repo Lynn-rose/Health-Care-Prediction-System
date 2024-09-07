@@ -26,7 +26,7 @@
                 <a href="/dashboard" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
                 <a href="/patients" class="w3-bar-item w3-button w3-padding "><i class="fa fa-eye fa-fw"></i>  Patients</a>
                 <a href="/staff" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-users fa-fw"></i>  Staff</a>
-                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
+                <a href="/inventory" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
             </div>
         </nav>
 
@@ -89,6 +89,7 @@
                             <input type="hidden" name='role' value='{{staff.role}}'
                             <input type="hidden" name='shift_start' value='{{staff.shift_start}}'>
                             <input type="hidden" name='shift_end' value='{{staff.shift_end}}'>
+                            <input type="hidden" name='assigned_patients' value='{{staff.assigned_patients}}'>
                         
                             <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
                             w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{staff.staff_id}}')">
@@ -112,49 +113,40 @@
                                     {{staff.shift_end}}
                                 </div>
                             </div>
-                            
-                        {% endfor %}
+                            {% endfor %}
+                        
                     </div>
 
                     <!-- RIGHT HALF-->
-                    <div class='w3-half' style='position: fixed; right:0px; width: 42%; top:10%; display: none;' id='insight-div'>
+                    <div class='w3-half' style='position: fixed; right:0px; width: 42%;  display: none;' id='insight-div'>
                         <div class="w3-container w3-margin-bottom">
                             <div class='w3-white w3-card'>
                                 <div class='w3-container w3-padding ' style='padding-left: 0px;'>
-                                    <h4 id='insight-name' class='w3-paddingt bold'>Patient Name</h4>
+                                    <h4 id='insight-name' class='w3-paddingt bold'>Staff Name</h4>
                                     <hr>
                                 </div>
 
                                 <div class='w3-padding'>
-                                    <label class='w3-padding-left bold w3-large'>Diagnosis:</label>
-                                    <p id='insight-diagnosis' class='w3-padding-right'>test</p>
-                                    <hr>
-                                </div>
-                                <div class='w3-padding'>
-                                    <label class='w3-padding-left bold w3-large'>Prescription:</label>
-                                    <p id='insight-prescription' class='w3-padding-right'>test</p>
+                                    <label class='w3-padding-left bold w3-large'>Staff Role:</label>
+                                    <p id='insight-role' class='w3-padding-right'>test</p>
                                     <hr>
                                 </div>
                             </div>
                         </div>
                         <div class="w3-container w3-margin-bottom">
                             <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Predicted Length of stay</h5>
-                                <p id='insight-los'>test</p>
-                            </div>
-                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Readmission Likely</h5>
-                                <p id='insight-readmission'>test</p>
-                            </div>
-                            <div class='w3-white w3-card w3-padding w3-large' style='min-height: 100px;'>
-                                <h5 class='w3-paddingt bold'>Adverse Case</h5>
-                                <p id='insight-death'>test</p>
+                                <h5 class='w3-paddingt bold'>Assigned Patients</h5>
+                                <p id='insight-assigned_patients'>test</p>
+                               
                             </div>
                         </div>
+                            
+                            
+                        </div>
                     </div>
-                </div>
+                </div>      
             </div>
-
+                    
             <!-- Footer -->
             <footer class="w3-container w3-padding-16 w3-light-grey">
                 <h4>HCPS DEMO</h4>
@@ -176,19 +168,13 @@
                 var form_data = new FormData(insight_form)
 
                 name_text = document.getElementById("insight-name")
-                diag_text = document.getElementById("insight-diagnosis")
-                pres_text = document.getElementById("insight-prescription")
-                los_text = document.getElementById("insight-los")
-                readm_text = document.getElementById("insight-readmission")
-                death_text = document.getElementById("insight-death")
+                role_text = document.getElementById("insight-role")
+                assign_text = document.getElementById("insight-assigned_patients")
 
                 name_text.innerHTML = form_data.get("name")
-                diag_text.innerHTML = form_data.get("diagnosis")
-                pres_text.innerHTML = form_data.get("prescription")
-                los_text.innerHTML = form_data.get("los")
-                readm_text.innerHTML = form_data.get("readmission")
-                death_text.innerHTML = form_data.get("death")
-
+                role_text.innerHTML = form_data.get("role")
+                assign_text.innerHTML = form_data.get("assigned_patients")
+                
                 if (div.style.display === "none")
                     div.style.display = "block"
             }

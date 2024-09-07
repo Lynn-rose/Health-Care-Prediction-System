@@ -1,31 +1,31 @@
 diagnosis_id,adm_id,diagnosis
-0,0,Acute respiratory failure
-1,1,"Asthma, unspecified type, unspecified"
-2,2,Esophageal reflux
-3,3,"Dysphagia, oropharyngeal phase"
-4,4,Solitary pulmonary nodule
-5,5,Hypoxemia
-6,6,"Asthma, unspecified type, unspecified"
-7,7,"Asthma, unspecified type, unspecified"
-8,8,"Dysphagia, oropharyngeal phase"
-9,9,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-10,10,"Asthma, unspecified type, unspecified"
-11,11,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-12,12,Methicillin resistant pneumonia due to Staphylococcus aureus
-13,13,Solitary pulmonary nodule
-14,14,"Dysphagia, oropharyngeal phase"
-15,15,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+0,0,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+1,1,"Dysphagia, oropharyngeal phase"
+2,2,Solitary pulmonary nodule
+3,3,Solitary pulmonary nodule
+4,4,Acute respiratory failure
+5,5,"Urinary tract infection, site not specified"
+6,6,Solitary pulmonary nodule
+7,7,Esophageal reflux
+8,8,"Asthma, unspecified type, unspecified"
+9,9,Solitary pulmonary nodule
+10,10,Solitary pulmonary nodule
+11,11,"Asthma, unspecified type, unspecified"
+12,12,Esophageal reflux
+13,13,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+14,14,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+15,15,Acute respiratory failure
 16,16,"Urinary tract infection, site not specified"
-17,17,Attention deficit disorder with hyperactivity
-18,18,"Asthma, unspecified type, unspecified"
-19,19,Methicillin resistant pneumonia due to Staphylococcus aureus
+17,17,Acute respiratory failure
+18,18,Hypoxemia
+19,19,Hypoxemia
 20,20,Solitary pulmonary nodule
-21,21,Attention deficit disorder with hyperactivity
-22,22,Methicillin resistant pneumonia due to Staphylococcus aureus
-23,23,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+21,21,Esophageal reflux
+22,22,"Asthma, unspecified type, unspecified"
+23,23,Acute respiratory failure
 24,24,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-25,25,Esophageal reflux
-26,26,Solitary pulmonary nodule
-27,27,"Asthma, unspecified type, unspecified"
-28,28,Acute respiratory failure
-29,29,Esophageal reflux
+25,25,Attention deficit disorder with hyperactivity
+26,26,"Dysphagia, oropharyngeal phase"
+27,27,"Dysphagia, oropharyngeal phase"
+28,28,"Asthma, unspecified type, unspecified"
+29,29,"Urinary tract infection, site not specified"

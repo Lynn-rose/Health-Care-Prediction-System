@@ -1,51 +1,51 @@
-Category,Item Name,Quantity,Price per Unit ($),Total Value ($),Expiry Date
-Diagnostic Tools,Pulse Oximeter,23,848.34,19511.82,2026-08-11
-Diagnostic Tools,Pulse Oximeter,384,2288.86,878922.24,2025-01-19
-Medical Equipment,MRI Scanner,430,3585.18,1541627.4,2026-07-27
-Medical Equipment,MRI Scanner,85,974.52,82834.2,2026-08-13
-PPE,Gloves,362,3892.39,1409045.18,2025-06-04
-Cleaning Supplies,Wipes,47,2302.54,108219.38,2026-06-10
-Medical Equipment,X-Ray Machine,400,4388.56,1755424.0,2024-10-19
-PPE,Gowns,14,2493.16,34904.24,2026-07-20
-Diagnostic Tools,Blood Pressure Monitor,198,770.73,152604.54,2024-10-30
-PPE,Face Shields,189,4448.63,840791.07,2025-01-18
-PPE,Face Shields,445,4986.57,2219023.65,2026-08-21
-Pharmaceuticals,Ibuprofen,399,868.45,346511.55,2025-04-03
-PPE,Gowns,32,4643.05,148577.6,2025-11-06
-Cleaning Supplies,Wipes,203,3118.38,633031.14,2024-09-08
-Pharmaceuticals,Amoxicillin,269,416.13,111938.97,2024-10-10
-Medical Equipment,X-Ray Machine,339,640.69,217193.91,2024-10-05
-Pharmaceuticals,Aspirin,418,3457.36,1445176.48,2025-07-17
-Cleaning Supplies,Alcohol Swabs,111,2380.22,264204.42,2026-12-13
-Diagnostic Tools,Blood Pressure Monitor,176,1893.1,333185.6,2024-12-30
-Pharmaceuticals,Amoxicillin,24,3060.22,73445.28,2026-02-21
-Cleaning Supplies,Alcohol Swabs,379,4879.14,1849194.06,2024-10-17
-PPE,Gowns,217,1434.84,311360.28,2027-03-10
-Medical Equipment,MRI Scanner,436,1002.77,437207.72,2025-07-20
-Medical Equipment,X-Ray Machine,229,1705.36,390527.44,2027-01-12
-Cleaning Supplies,Sanitizer,338,3607.67,1219392.46,2025-01-04
-Medical Equipment,Ultrasound Machine,65,1517.26,98621.9,2026-05-01
-Medical Equipment,Ultrasound Machine,424,4607.68,1953656.32,2027-03-05
-Diagnostic Tools,Thermometer,146,2546.85,371840.1,2026-07-28
-Cleaning Supplies,Alcohol Swabs,340,3014.75,1025015.0,2024-11-20
-Pharmaceuticals,Ibuprofen,444,325.27,144419.88,2025-02-12
-PPE,Gloves,21,407.23,8551.83,2027-04-27
-Cleaning Supplies,Alcohol Swabs,174,4984.6,867320.4,2024-10-25
-Medical Equipment,Ultrasound Machine,108,2003.01,216325.08,2026-06-13
-Diagnostic Tools,Thermometer,19,1870.84,35545.96,2026-06-15
-Surgical Tools,Hemostat,71,3103.29,220333.59,2026-04-13
-Pharmaceuticals,Ibuprofen,315,4966.56,1564466.4,2025-04-08
-Diagnostic Tools,Blood Pressure Monitor,281,1619.77,455155.37,2026-11-12
-Cleaning Supplies,Alcohol Swabs,356,1346.61,479393.16,2027-09-01
-Pharmaceuticals,Ibuprofen,168,2289.72,384672.96,2025-10-23
-Surgical Tools,Scalpel,295,977.59,288389.05,2026-04-05
-Cleaning Supplies,Alcohol Swabs,243,3791.7,921383.1,2026-06-13
-Pharmaceuticals,Amoxicillin,68,3111.9,211609.2,2025-07-02
-Medical Equipment,ECG Monitor,435,4416.06,1920986.1,2025-09-04
-Pharmaceuticals,Amoxicillin,180,3014.64,542635.2,2025-02-15
-Pharmaceuticals,Ibuprofen,231,3405.76,786730.56,2026-04-16
-Surgical Tools,Sutures,279,4550.89,1269698.31,2026-04-03
-PPE,Gloves,307,2455.01,753688.07,2025-12-28
-Diagnostic Tools,Thermometer,116,1038.75,120495.0,2027-05-15
-Diagnostic Tools,Thermometer,93,686.31,63826.83,2027-08-19
-Surgical Tools,Hemostat,206,4171.43,859314.58,2027-03-10
+category,item_name,quantity,price_per_unit($),total_value($),expiry_date
+Medical Equipment,ECG Monitor,332,1616.28,536604.96,2026-12-02
+Medical Equipment,ECG Monitor,139,1022.39,142112.21,2025-01-17
+PPE,Face Masks,383,2045.97,783606.51,2025-10-03
+Diagnostic Tools,Blood Pressure Monitor,479,3156.72,1512068.88,2024-11-18
+Cleaning Supplies,Wipes,314,3334.43,1047011.02,2027-03-25
+Surgical Tools,Hemostat,245,3425.45,839235.25,2025-04-19
+Surgical Tools,Sutures,238,2726.97,649018.86,2026-12-20
+Pharmaceuticals,Paracetamol,251,675.84,169635.84,2025-12-08
+PPE,Face Masks,486,1407.6,684093.6,2027-04-18
+Diagnostic Tools,Pulse Oximeter,348,2562.82,891861.36,2027-06-13
+PPE,Gowns,290,4072.96,1181158.4,2025-06-20
+Surgical Tools,Sutures,203,3251.99,660153.97,2027-07-17
+Pharmaceuticals,Ibuprofen,152,1502.32,228352.64,2024-12-09
+Medical Equipment,X-Ray Machine,435,3108.69,1352280.15,2027-07-26
+PPE,Face Shields,184,4091.05,752753.2,2027-07-31
+Cleaning Supplies,Disinfectant,385,1961.42,755146.7,2027-03-28
+Surgical Tools,Sutures,94,1033.55,97153.7,2027-03-26
+Pharmaceuticals,Paracetamol,382,3000.34,1146129.88,2025-08-27
+Diagnostic Tools,Blood Pressure Monitor,10,4827.92,48279.2,2026-08-23
+Surgical Tools,Forceps,92,2540.69,233743.48,2025-08-18
+Pharmaceuticals,Ibuprofen,321,4808.16,1543419.36,2026-01-03
+Surgical Tools,Sutures,141,3633.03,512257.23,2026-12-06
+Diagnostic Tools,Thermometer,249,1966.57,489675.93,2026-12-19
+Surgical Tools,Forceps,205,4096.49,839780.45,2027-07-23
+Diagnostic Tools,Blood Pressure Monitor,441,1431.37,631234.17,2024-10-24
+Pharmaceuticals,Aspirin,91,4901.85,446068.35,2025-09-30
+Diagnostic Tools,Blood Pressure Monitor,15,2501.28,37519.2,2025-11-17
+Diagnostic Tools,Blood Pressure Monitor,399,4612.41,1840351.59,2025-09-09
+Surgical Tools,Sutures,403,3130.4,1261551.2,2027-04-30
+Cleaning Supplies,Sanitizer,128,1552.78,198755.84,2026-03-28
+PPE,Face Shields,111,4842.58,537526.38,2024-09-12
+Medical Equipment,MRI Scanner,283,1200.61,339772.63,2024-12-23
+Surgical Tools,Scalpel,448,3485.69,1561589.12,2027-01-27
+Medical Equipment,MRI Scanner,437,3558.88,1555230.56,2027-02-19
+PPE,Gloves,461,3891.48,1793972.28,2026-12-07
+Surgical Tools,Scalpel,84,23.42,1967.28,2025-11-04
+Pharmaceuticals,Ibuprofen,461,1047.62,482952.82,2025-09-07
+PPE,Face Masks,118,1919.06,226449.08,2026-09-26
+Medical Equipment,Ultrasound Machine,151,4649.2,702029.2,2026-11-15
+Medical Equipment,Ultrasound Machine,109,4347.86,473916.74,2025-06-24
+Diagnostic Tools,Thermometer,220,3817.91,839940.2,2024-11-08
+Cleaning Supplies,Wipes,499,2224.7,1110125.3,2026-09-19
+Surgical Tools,Scalpel,368,4053.3,1491614.4,2026-07-30
+Pharmaceuticals,Amoxicillin,84,4038.28,339215.52,2026-11-27
+Medical Equipment,Ultrasound Machine,81,800.68,64855.08,2025-06-30
+Diagnostic Tools,Pulse Oximeter,53,4115.65,218129.45,2025-11-26
+Surgical Tools,Hemostat,328,1852.64,607665.92,2026-10-29
+Medical Equipment,Ultrasound Machine,116,4250.15,493017.4,2026-08-01
+Surgical Tools,Forceps,81,23.85,1931.85,2026-04-14
+Surgical Tools,Forceps,243,1546.94,375906.42,2025-09-04

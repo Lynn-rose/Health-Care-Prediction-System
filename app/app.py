@@ -35,6 +35,7 @@ prescriptions = pd.read_csv("app/data/prescriptions.csv")
 diagnoses = pd.read_csv("app/data/diagnoses.csv")
 omr = pd.read_csv("app/data/omr.csv")
 patients_df = pd.read_csv("app/data/patient_db.csv")
+inventory = pd.read_csv("app/data/hospital_inventory.csv")
 
 with open('app/data/marital_statuses.pkl', 'rb') as file:
     marital_statuses = pickle.load(file)
@@ -189,6 +190,48 @@ async def staff(request: Request):
         "admin": admin,
     })
 
+@app.post("/match")
+async def match():
+    try:
+        patient = {
+             "id": patients[patients.patient_id ],
+            "name": patients[patients.name ],
+        }
+        staff = {
+             "id": staffs[staffs.staff_id ],
+            "name": staffs[staffs.name ],
+            
+        }
+
+        results = {}
+        patient_df = pd.DataFrame([patient])
+        staff_df = pd.DataFrame([staff])
+        results["assigned_patients"] = match_doctors_nurses_to_patients(patient_df, staff_df).item()
+        print(results)
+        return results
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Error: " + str(e))
+    
+@app.get("/inventory")
+async def invent(request: Request):
+    medical_equipment = inventory[(inventory.category == "Medical Equipment")].shape[0]
+    pharmaceuticals = inventory[(inventory.category == "Pharmaceuticals")].shape[0]
+    surgical_tools = inventory[(inventory.category == "Surgical Tools")].shape[0]
+    ppe = inventory[(inventory.category == "PPE")].shape[0]
+    cleaning_supplies = inventory[(inventory.category == "Cleaning Supplies")].shape[0]
+    diagnostic_tools = inventory[(inventory.category == "Diagnostic Tools")].shape[0]
+    
+    return templates.TemplateResponse("inventory.html", context={
+        "request": request,
+        "medical_equipment": medical_equipment,
+        "pharmaceuticals": pharmaceuticals,
+        "surgical_tools": surgical_tools,
+        "ppe": ppe,
+        "cleaning_supplies": cleaning_supplies,
+        "diagnostic_tools": diagnostic_tools,
+    })
+
+
 ###################################
 #Length of stay calculation
 ####################################
@@ -218,6 +261,35 @@ def los_df(patient_id):
     patient_data["bp_diastolic"] = omr[omr.adm_id == adm].iloc[0]["bp_diastolic"]
 
     return pd.DataFrame([patient_data], columns=patient_data.keys())
+
+# Matching function
+def match_doctors_nurses_to_patients(patients, staffs):
+    doctors = staffs[staffs["role"] == "Physician"]
+    nurses = staffs[staffs["role"] == "Nurse"]
+    
+    doctor_list = doctors[["staff_id", "staff_name"]].to_dict(orient="records")
+    nurse_list = nurses[["staff_id", "staff_name"]].to_dict(orient="records")
+    
+    if len(doctor_list) == 0 or len(nurse_list) == 0:
+        raise HTTPException(status_code=400, detail="Not enough doctors or nurses available for matching")
+    
+    matched_assignments = []
+    num_doctors = len(doctor_list)
+    num_nurses = len(nurse_list)
+    
+    for i, patient in patients.iterrows():
+        assigned_doctor = doctor_list[i % num_doctors]
+        assigned_nurse = nurse_list[i % num_nurses]
+        
+        matched_assignments.append({
+            "patient_id": patient["patient_id"],
+            "patient_name": patient["patient_name"],
+            "assigned_doctor": assigned_doctor["staff_name"],
+            "assigned_nurse": assigned_nurse["staff_name"]
+        })
+    
+    return matched_assignments
+
 
 def get_all_patient_predictions():
     predictions = {
