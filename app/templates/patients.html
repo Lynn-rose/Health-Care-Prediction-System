@@ -47,43 +47,48 @@
                     <!-- Search Bar -->
                     <div class="w3-container w3-padding">
                         <input class="w3-input w3-border w3-margin-bottom" type="text" id="patientSearch" onkeyup="searchPatients()" placeholder="Search for patients by name, gender, or insurance...">
-                    </div>
+                    
 
-                    <!-- LEFT HALF -->
-                    <div class="w3-container w3-half w3-animate-left" id="patientList">
-                        {% for patient in patients %}
-                        <form action="" id='insight-form-{{patient.patient_id}}'>
-                            <input type="hidden" name='name' value='{{patient.name}}'>
-                            <input type="hidden" name='diagnosis' value='{{patient.diagnosis}}'>
-                            <input type="hidden" name='prescription' value='{{patient.drug}}'>
-                            <input type="hidden" name='readmission' value='{{patient.readmission}}'>
-                            <input type="hidden" name='death' value='{{patient.death}}'>
-                            <input type="hidden" name='los' value='{{patient.los}}'>
+                        <!-- LEFT HALF -->
+                        <div class="w3-container w3-half w3-animate-left" id="patientList">
+                            {% for patient in patients %}
+                            <form action="" id='insight-form-{{patient.patient_id}}'>
+                                <input type="hidden" name='name' value='{{patient.name}}'>
+                                <input type="hidden" name='diagnosis' value='{{patient.diagnosis}}'>
+                                <input type="hidden" name='prescription' value='{{patient.drug}}'>
+                                <input type="hidden" name='readmission' value='{{patient.readmission}}'>
+                                <input type="hidden" name='death' value='{{patient.death}}'>
+                                <input type="hidden" name='los' value='{{patient.los}}'>
 
-                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
-                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{patient.patient_id}}')">
-                                Insights
-                            </a>
-                        </form>
+                                
+                            </form>
                             <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
-                                <div >
-                                    <img src="images/robot.webp" alt="{{patient.name}}" class='record-picture'>
+                                <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
+                                w3-margin-top w3-hover-opacity" 
+                                style="z-index: 1; min-width: 30px; height: 120px; display: flex; justify-content: center; align-items: center; writing-mode: vertical-rl; text-orientation: mixed;" 
+                                onclick="show_insight('{{patient.patient_id}}')">
+                                Insights
+                                </a>
+                                <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
+                                    <div >
+                                        <img src="images/robot.webp" alt="{{patient.name}}" class='record-picture'>
+                                    </div>
+                                    <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
+                                        {{patient.name}}
+                                    </div>
+                                    <div class='w3-margin-right w3-padding'>
+                                        {{patient.gender}}
+                                    </div>
+                                    <div class='w3-margin-right w3-padding'>
+                                        {{patient.age}}
+                                    </div>
+                                    <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
+                                        {{patient.insurance}}
+                                    </div>
                                 </div>
-                                <div class='w3-margin-right w3-padding w3-large bold' style='min-width: 250px; width: 250px;'>
-                                    {{patient.name}}
-                                </div>
-                                <div class='w3-margin-right w3-padding'>
-                                    {{patient.gender}}
-                                </div>
-                                <div class='w3-margin-right w3-padding'>
-                                    {{patient.age}}
-                                </div>
-                                <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
-                                    {{patient.insurance}}
-                                </div>
-                            </div>
-                            
-                        {% endfor %}
+                            </div> 
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <!-- RIGHT HALF-->

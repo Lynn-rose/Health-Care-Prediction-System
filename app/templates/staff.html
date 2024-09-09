@@ -78,7 +78,7 @@
 
                     <!-- Search Bar -->
                     <div class="w3-container w3-padding">
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="staffSearch" onkeyup="searchStaff)" placeholder="Search for staff by name...">
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="staffSearch" onkeyup="searchStaff()" placeholder="Search for staff by name,role...">
                     </div>
 
                     <!-- LEFT HALF -->
@@ -91,11 +91,15 @@
                             <input type="hidden" name='shift_end' value='{{staff.shift_end}}'>
                             <input type="hidden" name='assigned_patients' value='{{staff.assigned_patients}}'>
                         
-                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
-                            w3-margin-top w3-hover-opacity" style='z-index: 1; min-width: 170px;' onclick="show_insight('{{staff.staff_id}}')">
-                                Insights
-                            </a>
+                            
                         </form>
+                        <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
+                            <a href="#" class="person-link w3-button w3-green w3-padding-large w3-large 
+                            w3-margin-top w3-hover-opacity" 
+                            style="z-index: 1; min-width: 30px; height: 120px; display: flex; justify-content: center; align-items: center; writing-mode: vertical-rl; text-orientation: mixed;" 
+                            onclick="show_insight('{{staff.staff_id}}')">
+                            Insights
+                            </a>
                             <div class='w3-white w3-card patient-record w3-animate-right w3-margin-bottom'>
                                 <div >
                                     <img src="images/robot.webp" alt="{{staff.staff_name}}" class='record-picture'>
@@ -112,9 +116,9 @@
                                 <div class='w3-margin-right w3-padding' style='min-width: 100px;'>
                                     {{staff.shift_end}}
                                 </div>
-                            </div>
-                            {% endfor %}
-                        
+                            </div>  
+                        </div>
+                        {% endfor %}
                     </div>
 
                     <!-- RIGHT HALF-->
@@ -207,29 +211,36 @@
             }
 
             // Function to search and filter staff
-            function searchStaff() {
-                // Get the value from the search input
-                var input = document.getElementById("staffSearch");
-                var filter = input.value.toLowerCase();
-                
-                // Get all staff record elements
-                var staffList = document.getElementById("staffList");
-                var staffCards = staffList.getElementsByClassName("patient-record");
-                
-                // Loop through all staff records and hide those that don't match the query
-                for (var i = 0; i < staffCards.length; i++) {
-                    var staffName = staffCards[i].getElementsByClassName("w3-large")[0].textContent;
-                    
-                    if (staffName.toLowerCase().indexOf(filter) > -1) {
-                        staffCards[i].style.display = "";
-                    } else {
-                        staffCards[i].style.display = "none";
-                    }
-                }
-            }
+    function searchStaff() {
+        // Get the value from the search input
+        var input = document.getElementById("staffSearch");
+        var filter = input.value.toLowerCase();
         
-            // Attach the searchStaff function to the search input field
-            document.getElementById("staffSearch").onkeyup = searchStaff;
+        // Get all staff record elements
+        var staffList = document.getElementById("staffList");
+        var staffCards = staffList.getElementsByClassName("patient-record");
+        
+        // Loop through all staff records and hide those that don't match the query
+        for (var i = 0; i < staffCards.length; i++) {
+            var staffName = staffCards[i].getElementsByClassName("w3-large")[0].textContent;
+            var staffRole = staffCards[i].getElementsByClassName("w3-padding")[0].textContent;
+            var shiftStart = staffCards[i].getElementsByClassName("w3-padding")[1].textContent;
+            var shiftEnd = staffCards[i].getElementsByClassName("w3-padding")[2].textContent;
+            
+            // Combine all searchable text into one string
+            var searchableText = staffName + " " + staffRole + " " + shiftStart + " " + shiftEnd;
+            
+            // Check if the filter value matches any of the fields
+            if (searchableText.toLowerCase().indexOf(filter) > -1) {
+                staffCards[i].style.display = "";
+            } else {
+                staffCards[i].style.display = "none";
+            }
+        }
+    }
+
+    // Attach the searchStaff function to the search input field
+    document.getElementById("staffSearch").onkeyup = searchStaff;
         </script>
 
     </body>
