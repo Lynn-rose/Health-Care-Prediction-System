@@ -245,7 +245,7 @@ async def get_inventory_data():
     return JSONResponse(content=data)
 
 # Path to the templates folder
-templates = Jinja2Templates(directory="app/templates")
+#templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/product_details")
 async def get_product_details(product_id: int):
@@ -259,25 +259,38 @@ async def get_product_details(product_id: int):
     # Convert the product details to a dictionary (Pandas DataFrame -> Dict)
     product_details = product.to_dict(orient="records")[0]
 
-    return product_details
+    return JSONResponse(content=product_details)
 
 @app.post("/modify_product")
 async def modify_product(request: Request):
-
+    data = await request.json()
+    product_id = data.get('product_id')
+    action = data.get('action')
+    quantity = data.get('quantity', 0)
+    
+    global inventory
+    
     # Find the product by product_id
-    product_index = inventory[inventory["product_id"] == request.product_id].index
+    product_index = inventory[inventory["product_id"] == product_id].index
 
     if product_index.empty:
         raise HTTPException(status_code=404, detail="Product not found")
 
-    if request.action == "add":
+    if action == "add":
         # Add the specified quantity to the existing product
-        new_quantity = inventory.loc[product_index, "quantity"].values[0] + request.quantity
+        new_quantity = inventory.loc[product_index, "quantity"].values[0] + quantity
         inventory.loc[product_index, "quantity"] = new_quantity
 
-    elif request.action == "delete":
-        # Remove the product from the inventory
-        inventory = inventory.drop(product_index)
+    elif action == "delete":
+        # Ensure sufficient quantity before deletion
+        current_quantity = inventory.loc[product_index, "quantity"].values[0]
+        if current_quantity < quantity:
+            raise HTTPException(status_code=400, detail="Not enough stock to delete.")
+        new_quantity = current_quantity - quantity
+        if new_quantity == 0:
+            inventory = inventory.drop(product_index)
+        else:
+            inventory.loc[product_index, "quantity"] = new_quantity
 
     else:
         raise HTTPException(status_code=400, detail="Invalid action. Use 'add' or 'delete'.")
@@ -285,12 +298,10 @@ async def modify_product(request: Request):
     # Save the updated inventory
     save_inventory(inventory)
 
-    return {"message": f"Product {request.action} operation successful."}
-    
+    return {"message": f"Product {action} operation successful."}
 
 def save_inventory(df):
     df.to_csv("app/data/hospital_inventory.csv", index=False)
-
 
 ###################################
 #Length of stay calculation

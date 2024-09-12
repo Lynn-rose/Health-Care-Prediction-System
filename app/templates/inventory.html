@@ -17,7 +17,11 @@
             padding: 12px;
             margin-bottom: 12px;
             border: 1px solid #ccc;
-            border-radius: 4px;}
+            border-radius: 4px;
+        }
+        .w3-button.w3-red {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body class="w3-light-grey">
@@ -116,7 +120,7 @@
             <h2>Hospital Inventory</h2>
 
             <!-- Search Bar -->
-            <input type="text" class="search-bar" id="search-bar" placeholder="Search for products..." onkeyup="searchInventory()">
+            <input type="text" class="search-bar" id="search-bar" placeholder="Search for products by category or item name..." onkeyup="searchInventory()">
 
             <table class="w3-table w3-striped w3-bordered w3-hoverable">
                 <thead>
@@ -147,7 +151,7 @@
                 </button>
             </div>
         </div>
-    
+
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
             <h4>HCPS DEMO</h4>
@@ -181,15 +185,29 @@
             const paginationInfo = document.getElementById('pagination-info');
             const prevButton = document.getElementById('prev-button');
             const nextButton = document.getElementById('next-button');
-            
+    
             tableBody.innerHTML = '';  // Clear the table body
     
             const start = (page - 1) * itemsPerPage;
             const end = Math.min(start + itemsPerPage, filteredData.length);
     
+            // Get the current date
+            const currentDate = new Date();
+    
             // Loop through the items and add rows to the table
             for (let i = start; i < end; i++) {
                 const item = filteredData[i];
+                const expiryDate = new Date(item.expiry_date);
+                const timeDiff = expiryDate.getTime() - currentDate.getTime();
+                const daysToExpiry = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    
+                let alertButton = '';
+    
+                // Check if quantity is less than 50 or expiry is within 30 days
+                if (item.quantity < 50 || daysToExpiry <= 30) {
+                    alertButton = `<button class="w3-button w3-red w3-small" onclick="alert('Alert: Low quantity or expiry for ${item.item_name} in 30 days')">Alert</button>`;
+                }
+    
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${item.product_id}</td>
@@ -201,6 +219,7 @@
                     <td>${item.expiry_date}</td>
                     <td>
                         <button class="w3-button w3-green w3-small" onclick="adddeleteProduct('${item.product_id}')">Add/Delete</button>
+                        ${alertButton}
                     </td>
                 `;
                 tableBody.appendChild(row);
@@ -214,38 +233,35 @@
             nextButton.style.display = (end < filteredData.length) ? 'inline-block' : 'none';
         }
     
-        // Change the page
+        // Handle search functionality
+        function searchInventory() {
+            const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+            filteredData = inventoryData.filter(item => 
+                item.item_name.toLowerCase().includes(searchTerm) ||
+                item.category.toLowerCase().includes(searchTerm)
+            );
+            currentPage = 1;  // Reset to the first page after search
+            displayPage(currentPage);
+        }
+        
+        // Handle the add/delete action
+        function adddeleteProduct(productId) {
+        window.location.href = `/product_details?product_id=${productId}`;
+        }
+
+        // Pagination
         function changePage(direction) {
             const newPage = currentPage + direction;
-            if (newPage > 0 && newPage <= Math.ceil(filteredData.length / itemsPerPage)) {
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    
+            if (newPage >= 1 && newPage <= totalPages) {
                 currentPage = newPage;
                 displayPage(currentPage);
             }
         }
     
-        // Handle the add/delete action
-        function adddeleteProduct(productId) {
-            window.location.href = `/product_details.html?product_id=${productId}`;
-        }
-    
-        // Search inventory based on input query
-        function searchInventory() {
-            const query = document.getElementById('search-bar').value.toLowerCase().trim();
-    
-            // Filter inventory by checking if query is found in product_id, category, or item_name
-            filteredData = inventoryData.filter(item => 
-                item.product_id.toLowerCase().includes(query) ||
-                item.category.toLowerCase().includes(query) ||
-                item.item_name.toLowerCase().includes(query)
-            );
-    
-            // Reset to the first page after search
-            currentPage = 1;
-            displayPage(currentPage);
-        }
-    
-        // Initialize inventory data fetch
-        fetchInventoryData();
+        // Load inventory data when the page loads
+        window.onload = fetchInventoryData;
     </script>
     <script>
         // Get the Sidebar
@@ -256,19 +272,19 @@
 
         // Toggle between showing and hiding the sidebar, and add overlay effect
         function w3_open() {
-            if (mySidebar.style.display === 'block') {
-                mySidebar.style.display = 'none';
-                overlayBg.style.display = "none";
-            } else {
-                mySidebar.style.display = 'block';
-                overlayBg.style.display = "block";
-            }
+        if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+            overlayBg.style.display = "none";
+        } else {
+            mySidebar.style.display = 'block';
+            overlayBg.style.display = "block";
+        }
         }
 
         // Close the sidebar with the close button
         function w3_close() {
-            mySidebar.style.display = "none";
-            overlayBg.style.display = "none";
+        mySidebar.style.display = "none";
+        overlayBg.style.display = "none";
         }
     </script>
 </body>
