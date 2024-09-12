@@ -1,145 +1,275 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HCPS - Demo Dashboard</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="static/css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <title>HCPS - Demo Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <style>
+        html, body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif}
+        .pagination-info {margin: 10px 0;}
+        .pagination-button {padding: 10px 20px; border: none; background-color: #2196F3; color: white; cursor: pointer;}
+        .search-bar {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;}
+    </style>
+</head>
+<body class="w3-light-grey">
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+        <a href='/'><img src="images/logo-l.png" alt="logo" class='logo-l'></a>
 
-        <style>
-            html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-        </style>
-    </head>
-    <body class="w3-light-grey">
-        <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-            <a href='/'><img src="images/logo-l.png" alt="logo" class='logo-l'></a>
-
-            <div class="w3-container">
-                <h5>Dashboard</h5>
-            </div>
-            <div class="w3-bar-block">
-                <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-                <a href="/dashboard" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
-                <a href="/patients" class="w3-bar-item w3-button w3-padding "><i class="fa fa-eye fa-fw"></i>  Patients</a>
-                <a href="/staff" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Staff</a>
-                <a href="/inventory" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
-            </div>
-        </nav>
-
-
-        <!-- Overlay effect when opening sidebar on small screens -->
-        <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-        <!-- !PAGE CONTENT! -->
-        <div class="w3-main" style="margin-left:300px;">
-            <!-- Header -->
-            <header class="w3-container" style="padding-top:22px">
-                <h5><b><i class="fa fa-dashboard"></i> Inventory</b></h5>
-            </header>
-
-            <div class="w3-row-padding w3-margin-bottom">
-                <div class="w3-third">
-                    <div class="w3-container w3-blue w3-padding-16">
-                        <div class="w3-left"><i class="	fa fa-wheelchair w3-xxlarge"></i></div>
-                        <div class="w3-right">
-                        <h3>{{medical_equipment}}</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Medical Equipment</h4>
-                    </div>
-                </div>
-                <div class="w3-third">
-                    <div class="w3-container w3-teal w3-padding-16">
-                        <div class="w3-left"><i class="	fa fa-stethoscope w3-xxlarge"></i></div>
-                        <div class="w3-right">
-                        <h3>{{pharmaceuticals}}</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Pharmaceuticals</h4>
-                    </div>
-                </div>
-                <div class="w3-third">
-                    <div class="w3-container w3-green w3-padding-16">
-                        <div class="w3-left"><i class=" fa fa-thermometer w3-xxlarge"></i></div>
-                        <div class="w3-right">
-                        <h3>{{surgical_tools}}</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Surgical Tools</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-row-padding w3-margin-bottom">
-                <div class="w3-third">
-                    <div class="w3-container .w3-sand w3-padding-16">
-                        <div class="w3-left"><i class=" fa fa-thermometer w3-xxlarge"></i></div>
-                        <div class="w3-right">
-                        <h3>{{ppe}}</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>PPE</h4>
-                    </div>
-                </div>
-                <div class="w3-third">
-                    <div class="w3-container w3-khaki w3-padding-16">
-                        <div class="w3-left"><i class=" fa fa-medkit w3-xxlarge"></i></div>
-                        <div class="w3-right">
-                        <h3>{{cleaning_supplies}}</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Cleaning Supplies</h4>
-                    </div>
-                </div>
-                <div class="w3-third">
-                    <div class="w3-container w3-lime w3-padding-16">
-                        <div class="w3-left"><i class=" fa fa-stethoscope w3-xxlarge"></i></div>
-                        <div class="w3-right">
-                        <h3>{{diagnostic_tools}}</h3>
-                        </div>
-                        <div class="w3-clear"></div>
-                        <h4>Diagnostic Tools</h4>
-                    </div>
-                </div>
-            </div>
-                   
-            <footer class="w3-container w3-padding-16 w3-light-grey">
-                <h4>HCPS DEMO</h4>
-                <p>
-                    © 2024 | HCPS - Health Care Prediction System. All rights reserved.
-                </p>
-            </footer>
+        <div class="w3-container">
+            <h5>Dashboard</h5>
         </div>
-        <script>
-            // Get the Sidebar
-            var mySidebar = document.getElementById("mySidebar");
+        <div class="w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+            <a href="/dashboard" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
+            <a href="/patients" class="w3-bar-item w3-button w3-padding "><i class="fa fa-eye fa-fw"></i>  Patients</a>
+            <a href="/staff" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Staff</a>
+            <a href="/inventory" class="w3-bar-item w3-button w3-padding w3-green"><i class="fa fa-bullseye fa-fw"></i>  Inventory</a>
+        </div>
+    </nav>
 
-            // Get the DIV with overlay effect
-            var overlayBg = document.getElementById("myOverlay");
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-            // Toggle between showing and hiding the sidebar, and add overlay effect
-            function w3_open() {
-                if (mySidebar.style.display === 'block') {
-                    mySidebar.style.display = 'none';
-                    overlayBg.style.display = "none";
-                } else {
-                    mySidebar.style.display = 'block';
-                    overlayBg.style.display = "block";
-                }
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;">
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> Inventory</b></h5>
+        </header>
+
+        <div class="w3-row-padding w3-margin-bottom">
+            <div class="w3-third">
+                <div class="w3-container w3-blue w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-wheelchair w3-xxlarge"></i></div>
+                    <div class="w3-right">
+                    <h3>{{medical_equipment}}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Medical Equipment</h4>
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-teal w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-stethoscope w3-xxlarge"></i></div>
+                    <div class="w3-right">
+                    <h3>{{pharmaceuticals}}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Pharmaceuticals</h4>
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-green w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-thermometer w3-xxlarge"></i></div>
+                    <div class="w3-right">
+                    <h3>{{surgical_tools}}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Surgical Tools</h4>
+                </div>
+            </div>
+        </div>
+        <div class="w3-row-padding w3-margin-bottom">
+            <div class="w3-third">
+                <div class="w3-container w3-sand w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-thermometer w3-xxlarge"></i></div>
+                    <div class="w3-right">
+                    <h3>{{ppe}}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>PPE</h4>
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-khaki w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-medkit w3-xxlarge"></i></div>
+                    <div class="w3-right">
+                    <h3>{{cleaning_supplies}}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Cleaning Supplies</h4>
+                </div>
+            </div>
+            <div class="w3-third">
+                <div class="w3-container w3-lime w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-stethoscope w3-xxlarge"></i></div>
+                    <div class="w3-right">
+                    <h3>{{diagnostic_tools}}</h3>
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Diagnostic Tools</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-container">
+            <h2>Hospital Inventory</h2>
+
+            <!-- Search Bar -->
+            <input type="text" class="search-bar" id="search-bar" placeholder="Search for products..." onkeyup="searchInventory()">
+
+            <table class="w3-table w3-striped w3-bordered w3-hoverable">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Category</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Price per Unit</th>
+                        <th>Total Price</th>
+                        <th>Expiry Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                    <!-- Data will be inserted here -->
+                </tbody>
+            </table>
+            <div class="pagination-info w3-right-align">
+                <span id="pagination-info">Page 1 of 1</span>
+            </div>
+            <div class="w3-right-align">
+                <button class="pagination-button" id="prev-button" onclick="changePage(-1)">
+                    <i class="fa fa-arrow-left"></i> Previous
+                </button>
+                <button class="pagination-button" id="next-button" onclick="changePage(1)">
+                    Next <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+            <h4>HCPS DEMO</h4>
+            <p>
+                © 2024 | HCPS - Health Care Prediction System. All rights reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const itemsPerPage = 10;
+        let inventoryData = [];
+        let filteredData = [];
+    
+        // Fetch inventory data from the server
+        async function fetchInventoryData() {
+            try {
+                const response = await fetch('/inventory_data');
+                inventoryData = await response.json();
+                filteredData = inventoryData;  // Initialize filteredData with all data
+                displayPage(currentPage);      // Display the first page
+            } catch (error) {
+                console.error("Failed to fetch inventory data:", error);
             }
-
-            // Close the sidebar with the close button
-            function w3_close() {
-                mySidebar.style.display = "none";
-                overlayBg.style.display = "none";
-            }
-
+        }
+    
+        // Display the items on the current page
+        function displayPage(page) {
+            const tableBody = document.getElementById('inventory-table-body');
+            const paginationInfo = document.getElementById('pagination-info');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
             
-        </script>
+            tableBody.innerHTML = '';  // Clear the table body
+    
+            const start = (page - 1) * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, filteredData.length);
+    
+            // Loop through the items and add rows to the table
+            for (let i = start; i < end; i++) {
+                const item = filteredData[i];
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.product_id}</td>
+                    <td>${item.category}</td>
+                    <td>${item.item_name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price_per_unit}</td>
+                    <td>${(item.quantity * item.price_per_unit).toFixed(2)}</td>
+                    <td>${item.expiry_date}</td>
+                    <td>
+                        <button class="w3-button w3-green w3-small" onclick="adddeleteProduct('${item.product_id}')">Add/Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            }
+    
+            // Update pagination info
+            paginationInfo.innerText = `Page ${page} of ${Math.ceil(filteredData.length / itemsPerPage)}`;
+    
+            // Update visibility of pagination buttons
+            prevButton.style.display = (page > 1) ? 'inline-block' : 'none';
+            nextButton.style.display = (end < filteredData.length) ? 'inline-block' : 'none';
+        }
+    
+        // Change the page
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage > 0 && newPage <= Math.ceil(filteredData.length / itemsPerPage)) {
+                currentPage = newPage;
+                displayPage(currentPage);
+            }
+        }
+    
+        // Handle the add/delete action
+        function adddeleteProduct(productId) {
+            window.location.href = `/product_details.html?product_id=${productId}`;
+        }
+    
+        // Search inventory based on input query
+        function searchInventory() {
+            const query = document.getElementById('search-bar').value.toLowerCase().trim();
+    
+            // Filter inventory by checking if query is found in product_id, category, or item_name
+            filteredData = inventoryData.filter(item => 
+                item.product_id.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query) ||
+                item.item_name.toLowerCase().includes(query)
+            );
+    
+            // Reset to the first page after search
+            currentPage = 1;
+            displayPage(currentPage);
+        }
+    
+        // Initialize inventory data fetch
+        fetchInventoryData();
+    </script>
+    <script>
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
 
-    </body>
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+    </script>
+</body>
 </html>

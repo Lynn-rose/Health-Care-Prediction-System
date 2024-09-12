@@ -62,3 +62,6 @@ img.avatar
 {
   padding: 8px;
 }
+.w3-right-align {
+  text-align: right;
+}

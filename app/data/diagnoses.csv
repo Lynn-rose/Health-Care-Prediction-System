@@ -1,31 +1,31 @@
 diagnosis_id,adm_id,diagnosis
 0,0,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-1,1,"Dysphagia, oropharyngeal phase"
-2,2,Solitary pulmonary nodule
-3,3,Solitary pulmonary nodule
-4,4,Acute respiratory failure
-5,5,"Urinary tract infection, site not specified"
-6,6,Solitary pulmonary nodule
-7,7,Esophageal reflux
-8,8,"Asthma, unspecified type, unspecified"
-9,9,Solitary pulmonary nodule
-10,10,Solitary pulmonary nodule
-11,11,"Asthma, unspecified type, unspecified"
-12,12,Esophageal reflux
-13,13,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-14,14,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-15,15,Acute respiratory failure
+1,1,Hypoxemia
+2,2,Attention deficit disorder with hyperactivity
+3,3,"Dysphagia, oropharyngeal phase"
+4,4,"Dysphagia, oropharyngeal phase"
+5,5,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+6,6,"Asthma, unspecified type, unspecified"
+7,7,Methicillin resistant pneumonia due to Staphylococcus aureus
+8,8,"Dysphagia, oropharyngeal phase"
+9,9,"Dysphagia, oropharyngeal phase"
+10,10,"Urinary tract infection, site not specified"
+11,11,Acute respiratory failure
+12,12,Attention deficit disorder with hyperactivity
+13,13,"Urinary tract infection, site not specified"
+14,14,"Dysphagia, oropharyngeal phase"
+15,15,"Asthma, unspecified type, unspecified"
 16,16,"Urinary tract infection, site not specified"
-17,17,Acute respiratory failure
-18,18,Hypoxemia
-19,19,Hypoxemia
-20,20,Solitary pulmonary nodule
-21,21,Esophageal reflux
-22,22,"Asthma, unspecified type, unspecified"
-23,23,Acute respiratory failure
-24,24,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-25,25,Attention deficit disorder with hyperactivity
-26,26,"Dysphagia, oropharyngeal phase"
-27,27,"Dysphagia, oropharyngeal phase"
-28,28,"Asthma, unspecified type, unspecified"
-29,29,"Urinary tract infection, site not specified"
+17,17,"Asthma, unspecified type, unspecified"
+18,18,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+19,19,Attention deficit disorder with hyperactivity
+20,20,Attention deficit disorder with hyperactivity
+21,21,Methicillin resistant pneumonia due to Staphylococcus aureus
+22,22,"Urinary tract infection, site not specified"
+23,23,Methicillin resistant pneumonia due to Staphylococcus aureus
+24,24,Methicillin resistant pneumonia due to Staphylococcus aureus
+25,25,"Dysphagia, oropharyngeal phase"
+26,26,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+27,27,Hypoxemia
+28,28,"Urinary tract infection, site not specified"
+29,29,Esophageal reflux

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details - HCPS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+    <style>
+        html, body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif}
+    </style>
+</head>
+<body class="w3-light-grey">
+    <!-- Sidebar/menu -->
+    <!-- (Include the sidebar here) -->
+
+    <div class="w3-main" style="margin-left:300px;">
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-info-circle"></i> Product Details</b></h5>
+        </header>
+
+        <div class="w3-container">
+            <h2 id="product-name"></h2>
+            <p><strong>Product ID:</strong> <span id="product-id"></span></p>
+            <p><strong>Category:</strong> <span id="product-category"></span></p>
+            <p><strong>Item Name:</strong> <span id="item-name"></span></p>
+            <p><strong>Quantity:</strong> <span id="quantity"></span></p>
+            <p><strong>Price per Unit:</strong> <span id="price-per-unit"></span></p>
+            <p><strong>Total Price:</strong> <span id="total-price"></span></p>
+            <p><strong>Expiry Date:</strong> <span id="expiry-date"></span></p>
+
+            <button class="w3-button w3-green" onclick="modifyProduct('add')">Add</button>
+            <button class="w3-button w3-red" onclick="modifyProduct('delete')">Delete</button>
+        </div>
+
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+            <h4>HCPS DEMO</h4>
+            <p>
+                © 2024 | HCPS - Health Care Prediction System. All rights reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        async function fetchProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product_id');
+            const response = await fetch(`/product_details?product_id=${productId}`);
+            const product = await response.json();
+        
+            document.getElementById('product-id').innerText = product.product_id;
+            document.getElementById('product-name').innerText = product.item_name;
+            document.getElementById('product-category').innerText = product.category;
+            document.getElementById('item-name').innerText = product.item_name;
+            document.getElementById('quantity').innerText = product.quantity;
+            document.getElementById('price-per-unit').innerText = product.price_per_unit;
+            document.getElementById('total-price').innerText = (product.quantity * product.price_per_unit).toFixed(2);
+            document.getElementById('expiry-date').innerText = product.expiry_date;
+        }
+        
+        async function modifyProduct(action) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product_id');
+            let quantity = 0;
+            
+            if (action === 'add') {
+                quantity = prompt("Enter quantity to add:");
+            }
+        
+            const response = await fetch(`/modify_product`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ product_id: productId, action: action, quantity: quantity })
+            });
+            
+            const result = await response.json();
+            alert(result.message);
+            window.location.reload();
+        }
+        
+        fetchProductDetails();
+    </script>
+</body>
+</html>

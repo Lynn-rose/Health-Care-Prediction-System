@@ -64,32 +64,6 @@
                                     <td style='text-align: left;'><input type="text" name="diagnosis" id="diagnosis" style='width:100%' required></td>
                                 </tr>
                                 <tr>
-                                    <td style='text-align: left;'>Gender:</td>
-                                    <td style='text-align: left;'><input type="text" name="gender" id="gender" style='width:100%' required></td>
-                                </tr>
-                                <tr>
-                                    <td style='text-align: left;'>Race:</td>
-                                    <td style='text-align: left;'><input type="text" name="race" id="race" style='width:100%' required></td>
-                                </tr>
-                                <!-- Similar dropdowns for admission_type, admission_location, insurance, marital_status, race -->
-                                <!-- Fields for weight, bp_systolic, bp_diastolic -->
-                                <tr>
-                                    <td style='text-align: left;'>Admission Type:</td>
-                                    <td style='text-align: left;'><input type="text" name="admission_type" id="admission_type" style='width:100%' required></td>
-                                </tr>
-                                <tr>
-                                    <td style='text-align: left;'>Admission Location:</td>
-                                    <td style='text-align: left;'><input type="text" name="admission_location" id="admission_location" style='width:100%' required></td>
-                                </tr>
-                                <tr>
-                                    <td style='text-align: left;'>Insurance:</td>
-                                    <td style='text-align: left;'><input type="text" name="insurance" id="insurance" style='width:100%' required></td>
-                                </tr>
-                                <tr>
-                                    <td style='text-align: left;'>Marital Status:</td>
-                                    <td style='text-align: left;'><input type="text" name="marital_status" id="marital_status" style='width:100%' required></td>
-                                </tr>
-                                <tr>
                                     <td style='text-align: left;'>BP Systolic:</td>
                                     <td><input type="number" name="bp_systolic" id="bp_systolic" style='width:100%' required></td>
                                 </tr>
@@ -102,6 +76,75 @@
                                     <td><input type="number" name="weight" id="weight" style='width:100%' required></td>
                                 </tr>
                                 <tr>
+                                    <td style='text-align: left;'>Gender:</td>
+                                    <td style='text-align: left;'>
+                                        <select id="gender" name="gender" required class='w3-padding' style='width: 100%;'>
+                                            <option value="" disabled selected>Select gender</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td style='text-align: left;'>Race:</td>
+                                    <td style='text-align: left;'>
+                                        <select id="race" name="race" required class='w3-padding' style='width: 100%;'>
+                                            <option value="" disabled selected>Select race</option>
+                                            {% for race in races %}
+                                                <option value="{{ race }}">{{ race }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td style='text-align: left;'>Admission Type:</td>
+                                    <td style='text-align: left;'>
+                                        <select id="admission_type" name="admission_type" required class='w3-padding' style='width: 100%;'>
+                                            <option value="" disabled selected>Select admission type</option>
+                                            {% for type in admission_types %}
+                                                <option value="{{ type }}">{{ type }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td style='text-align: left;'>Admission Location:</td>
+                                    <td style='text-align: left;'>
+                                        <select id="admission_location" name="admission_location" required class='w3-padding' style='width: 100%;'>
+                                            <option value="" disabled selected>Select admission location</option>
+                                            {% for location in admission_locations %}
+                                                <option value="{{ location }}">{{ location }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td style='text-align: left;'>Insurance:</td>
+                                    <td style='text-align: left;'>
+                                        <select id="insurance" name="insurance" required class='w3-padding' style='width: 100%;'>
+                                            <option value="" disabled selected>Select insurance</option>
+                                            {% for insurance in insurance_types %}
+                                                <option value="{{ insurance }}">{{ insurance }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td style='text-align: left;'>Marital Status:</td>
+                                    <td style='text-align: left;'>
+                                        <select id="marital_status" name="marital_status" required class='w3-padding' style='width: 100%;'>
+                                            <option value="" disabled selected>Select marital status</option>
+                                            {% for status in marital_statuses %}
+                                                <option value="{{ status }}">{{ status }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </td>
+                                </tr>
                             </table>
                             <table>
                                 <tr>
@@ -135,29 +178,49 @@
             
                 async function patient_post() {
                     const patientId = document.getElementById('patient_id').value;
-                
-                    // Send a request to the backend with the patient_id
+                    
                     const response = await fetch(`/get_patient_data?patient_id=${patientId}`);
                     
                     if (response.ok) {
                         const data = await response.json();
-                
+                        
                         // Fill the form with the received data
                         document.getElementById('name').value = data.name;
                         document.getElementById('age').value = data.age;
                         document.getElementById('prescription').value = data.drug;
                         document.getElementById('diagnosis').value = data.diagnosis;
-                        document.getElementById('gender').value = data.gender;
-                        document.getElementById('race').value = data.race;
-                        document.getElementById('admission_type').value = data.type;
-                        document.getElementById('admission_location').value = data.location;
-                        document.getElementById('insurance').value = data.insurance;
-                        document.getElementById('marital_status').value = data.maritalStatus;
                         document.getElementById('bp_systolic').value = data.bp_systolic;
                         document.getElementById('bp_diastolic').value = data.bp_diastolic;
                         document.getElementById('weight').value = data.weight;
+                
+                        // Set dropdown values after ensuring options are populated
+                        setTimeout(() => {
+                            setDropdownValue('gender', data.gender);
+                            setDropdownValue('race', data.race);
+                            setDropdownValue('admission_type', data.type);
+                            setDropdownValue('admission_location', data.location);
+                            setDropdownValue('insurance', data.insurance);
+                            setDropdownValue('marital_status', data.maritalStatus);
+                        }, 500); // Adjust this delay if needed
+                        
                     } else {
                         alert("Patient not found");
+                    }
+                }
+                function setDropdownValue(dropdownId, value) {
+                    const dropdown = document.getElementById(dropdownId);
+                    if (dropdown) {
+                        const options = dropdown.options;
+                        
+                        for (let i = 0; i < options.length; i++) {
+                            if (options[i].value === value) {
+                                dropdown.selectedIndex = i;
+                                console.log(`Set ${dropdownId} to ${value}`);
+                                break;
+                            }
+                        }
+                    } else {
+                        console.log(`Dropdown ${dropdownId} not found`);
                     }
                 }
 

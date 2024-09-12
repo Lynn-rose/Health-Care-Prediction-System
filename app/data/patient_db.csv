@@ -1,31 +1,31 @@
 patient_id,name,age,gender,insurance,maritalStatus,race,adm_id,type,location,weight,bp_systolic,bp_diastolic,drug,diagnosis
-0,Nicolas Nichols,88,M,Medicare,WIDOWED,UNKNOWN,0,URGENT,CLINIC REFERRAL,113,118,70,Nephrocaps,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-1,Monica Phillips,73,F,Medicaid,DIVORCED,UNABLE TO OBTAIN,1,URGENT,PACU,109,135,92,Ondansetron,"Dysphagia, oropharyngeal phase"
-2,Brian Carrillo,44,M,Other,MARRIED,WHITE - OTHER EUROPEAN,2,AMBULATORY OBSERVATION,TRANSFER FROM SKILLED NURSING FACILITY,65,107,72,Multivitamins W/minerals,Solitary pulmonary nodule
-3,Mary Robinson,66,F,Other,DIVORCED,WHITE - OTHER EUROPEAN,3,EW EMER.,EMERGENCY ROOM,114,145,83,Midodrine,Solitary pulmonary nodule
-4,Jeffrey Chung,78,M,Medicare,DIVORCED,HISPANIC/LATINO - CUBAN,4,AMBULATORY OBSERVATION,CLINIC REFERRAL,98,88,75,Multivitamins W/minerals,Acute respiratory failure
-5,Jacqueline Moore,52,F,Medicaid,DIVORCED,BLACK/AFRICAN AMERICAN,5,URGENT,TRANSFER FROM HOSPITAL,108,161,84,Ondansetron,"Urinary tract infection, site not specified"
-6,Eric Jordan,25,M,Other,WIDOWED,WHITE - BRAZILIAN,6,EW EMER.,CLINIC REFERRAL,88,191,61,Nicotine Polacrilex,Solitary pulmonary nodule
-7,Sandy Weaver,86,F,Other,SINGLE,PATIENT DECLINED TO ANSWER,7,AMBULATORY OBSERVATION,PHYSICIAN REFERRAL,117,161,82,OxyCODONE (Immediate Release),Esophageal reflux
-8,Tammy Watson,89,F,Other,WIDOWED,HISPANIC OR LATINO,8,DIRECT EMER.,PACU,111,108,91,Nephrocaps,"Asthma, unspecified type, unspecified"
-9,Nancy Morgan,28,F,Medicare,MARRIED,PORTUGUESE,9,AMBULATORY OBSERVATION,INFORMATION NOT AVAILABLE,108,97,106,Sodium Chloride,Solitary pulmonary nodule
-10,Andrew Oliver,10,M,Medicaid,MARRIED,HISPANIC OR LATINO,10,SURGICAL SAME DAY ADMISSION,PHYSICIAN REFERRAL,99,94,66,Midodrine,Solitary pulmonary nodule
-11,Rhonda Davis,73,F,Other,MARRIED,UNABLE TO OBTAIN,11,ELECTIVE,INTERNAL TRANSFER TO OR FROM PSYCH,63,83,70,Nicotine Polacrilex,"Asthma, unspecified type, unspecified"
-12,Nicole Marshall,26,F,Other,WIDOWED,HISPANIC/LATINO - PUERTO RICAN,12,EU OBSERVATION,WALK-IN/SELF REFERRAL,115,109,60,Nicotine Polacrilex,Esophageal reflux
-13,Samantha Walker,68,F,Other,MARRIED,OTHER,13,EU OBSERVATION,PHYSICIAN REFERRAL,81,87,116,Nicotine Polacrilex,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-14,Edward Blair,66,M,Other,SINGLE,HISPANIC/LATINO - SALVADORAN,14,DIRECT OBSERVATION,TRANSFER FROM HOSPITAL,119,100,87,Nicotine Polacrilex,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-15,Cynthia Adams DDS,11,F,Medicaid,MARRIED,PATIENT DECLINED TO ANSWER,15,DIRECT EMER.,TRANSFER FROM SKILLED NURSING FACILITY,64,178,112,Nephrocaps,Acute respiratory failure
-16,Johnathan Young,79,M,Medicaid,MARRIED,OTHER,16,EW EMER.,EMERGENCY ROOM,76,144,75,OxyCODONE (Immediate Release),"Urinary tract infection, site not specified"
-17,Jamie Villarreal,14,M,Medicaid,MARRIED,PORTUGUESE,17,OBSERVATION ADMIT,TRANSFER FROM HOSPITAL,117,93,77,Nephrocaps,Acute respiratory failure
-18,Russell Jones,4,M,Medicare,DIVORCED,HISPANIC/LATINO - PUERTO RICAN,18,URGENT,PROCEDURE SITE,107,99,63,OxyCODONE (Immediate Release),Hypoxemia
-19,Timothy Snyder,14,M,Medicare,SINGLE,PATIENT DECLINED TO ANSWER,19,AMBULATORY OBSERVATION,WALK-IN/SELF REFERRAL,108,127,118,Sodium Chloride,Hypoxemia
-20,Brent Bryant,83,M,Medicaid,SINGLE,PORTUGUESE,20,URGENT,TRANSFER FROM SKILLED NURSING FACILITY,94,134,84,Sodium Chloride,Solitary pulmonary nodule
-21,Kurt Welch,7,M,Other,SINGLE,PORTUGUESE,21,AMBULATORY OBSERVATION,PHYSICIAN REFERRAL,79,134,65,Midodrine,Esophageal reflux
-22,Andrew Compton,78,M,Medicare,DIVORCED,UNKNOWN,22,AMBULATORY OBSERVATION,TRANSFER FROM HOSPITAL,101,145,117,Sodium Chloride,"Asthma, unspecified type, unspecified"
-23,Kyle Cherry,88,M,Medicaid,MARRIED,UNABLE TO OBTAIN,23,DIRECT EMER.,TRANSFER FROM SKILLED NURSING FACILITY,66,157,67,Ondansetron,Acute respiratory failure
-24,John Waller,43,M,Medicaid,SINGLE,WHITE - BRAZILIAN,24,OBSERVATION ADMIT,TRANSFER FROM SKILLED NURSING FACILITY,67,111,115,Multivitamins W/minerals,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
-25,Laura Taylor,73,F,Medicare,DIVORCED,UNKNOWN,25,URGENT,PACU,116,167,63,Nephrocaps,Attention deficit disorder with hyperactivity
-26,Brent Murphy,65,M,Other,MARRIED,UNKNOWN,26,DIRECT OBSERVATION,WALK-IN/SELF REFERRAL,110,150,97,Sodium Chloride,"Dysphagia, oropharyngeal phase"
-27,Ryan Simon,49,M,Medicaid,DIVORCED,WHITE,27,DIRECT OBSERVATION,INFORMATION NOT AVAILABLE,64,204,119,OLANZapine,"Dysphagia, oropharyngeal phase"
-28,Corey Wright,85,M,Medicare,MARRIED,HISPANIC/LATINO - SALVADORAN,28,EU OBSERVATION,TRANSFER FROM HOSPITAL,84,120,79,Nephrocaps,"Asthma, unspecified type, unspecified"
-29,Michael Jacobson,60,M,Medicare,WIDOWED,WHITE,29,EW EMER.,PHYSICIAN REFERRAL,100,89,73,OxyCODONE (Immediate Release),"Urinary tract infection, site not specified"
+0,Tyler Gentry,11,M,Other,SINGLE,BLACK/CAPE VERDEAN,0,SURGICAL SAME DAY ADMISSION,TRANSFER FROM SKILLED NURSING FACILITY,108,114,74,Sodium Chloride,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+1,James Hawkins,24,M,Medicare,MARRIED,WHITE - OTHER EUROPEAN,1,ELECTIVE,PROCEDURE SITE,99,172,103,Sodium Chloride,Hypoxemia
+2,Jessica Cooper,18,F,Medicare,WIDOWED,PORTUGUESE,2,ELECTIVE,EMERGENCY ROOM,116,109,96,Nephrocaps,Attention deficit disorder with hyperactivity
+3,Yolanda Daniel,63,F,Medicare,MARRIED,WHITE - OTHER EUROPEAN,3,DIRECT EMER.,TRANSFER FROM HOSPITAL,115,116,83,Nephrocaps,"Dysphagia, oropharyngeal phase"
+4,Ashley Hogan,59,F,Other,DIVORCED,PORTUGUESE,4,URGENT,INTERNAL TRANSFER TO OR FROM PSYCH,93,146,78,Nicotine Polacrilex,"Dysphagia, oropharyngeal phase"
+5,Ethan Love,62,M,Other,DIVORCED,PATIENT DECLINED TO ANSWER,5,EW EMER.,PACU,94,123,93,Sodium Chloride,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+6,Laura Johnson,67,F,Medicaid,DIVORCED,UNKNOWN,6,OBSERVATION ADMIT,PROCEDURE SITE,65,155,85,Ondansetron,"Asthma, unspecified type, unspecified"
+7,Michael Rosales,67,M,Medicare,SINGLE,HISPANIC OR LATINO,7,ELECTIVE,CLINIC REFERRAL,90,123,119,Nicotine Polacrilex,Methicillin resistant pneumonia due to Staphylococcus aureus
+8,Julia Gomez,77,F,Medicaid,MARRIED,HISPANIC OR LATINO,8,OBSERVATION ADMIT,TRANSFER FROM HOSPITAL,96,180,108,Nicotine Polacrilex,"Dysphagia, oropharyngeal phase"
+9,Patricia Mejia,56,F,Medicaid,DIVORCED,PATIENT DECLINED TO ANSWER,9,AMBULATORY OBSERVATION,TRANSFER FROM HOSPITAL,67,199,101,OLANZapine,"Dysphagia, oropharyngeal phase"
+10,Johnny Park,5,M,Medicaid,SINGLE,OTHER,10,URGENT,TRANSFER FROM HOSPITAL,107,123,109,Ondansetron,"Urinary tract infection, site not specified"
+11,Kathryn James,56,F,Medicare,MARRIED,BLACK/AFRICAN AMERICAN,11,EU OBSERVATION,CLINIC REFERRAL,90,203,62,OxyCODONE (Immediate Release),Acute respiratory failure
+12,Emily Caldwell,77,F,Medicare,SINGLE,BLACK/CAPE VERDEAN,12,EW EMER.,TRANSFER FROM SKILLED NURSING FACILITY,81,107,96,Nicotine Polacrilex,Attention deficit disorder with hyperactivity
+13,Angela Barrett,1,F,Medicare,DIVORCED,WHITE - BRAZILIAN,13,URGENT,PROCEDURE SITE,61,199,106,Nephrocaps,"Urinary tract infection, site not specified"
+14,Carol Hull MD,59,F,Medicare,SINGLE,BLACK/AFRICAN AMERICAN,14,DIRECT OBSERVATION,WALK-IN/SELF REFERRAL,93,159,112,Midodrine,"Dysphagia, oropharyngeal phase"
+15,Donna Davidson,8,F,Other,WIDOWED,OTHER,15,ELECTIVE,INTERNAL TRANSFER TO OR FROM PSYCH,89,138,68,OxyCODONE (Immediate Release),"Asthma, unspecified type, unspecified"
+16,Jim Francis,78,M,Medicaid,MARRIED,BLACK/CAPE VERDEAN,16,URGENT,PROCEDURE SITE,88,101,79,Sodium Chloride,"Urinary tract infection, site not specified"
+17,Charles Rose,12,M,Medicaid,DIVORCED,OTHER,17,OBSERVATION ADMIT,EMERGENCY ROOM,65,213,102,Midodrine,"Asthma, unspecified type, unspecified"
+18,Patrick Lewis,22,M,Medicare,MARRIED,HISPANIC/LATINO - PUERTO RICAN,18,EU OBSERVATION,PACU,109,177,75,Multivitamins W/minerals,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+19,Jacob Wiley,88,M,Other,DIVORCED,HISPANIC/LATINO - SALVADORAN,19,URGENT,WALK-IN/SELF REFERRAL,70,188,63,Midodrine,Attention deficit disorder with hyperactivity
+20,Isaac Thomas,2,M,Medicaid,MARRIED,UNKNOWN,20,DIRECT EMER.,EMERGENCY ROOM,65,80,78,Nephrocaps,Attention deficit disorder with hyperactivity
+21,Vicki Roberson,24,F,Medicaid,DIVORCED,HISPANIC/LATINO - PUERTO RICAN,21,ELECTIVE,PROCEDURE SITE,63,183,103,Ondansetron,Methicillin resistant pneumonia due to Staphylococcus aureus
+22,Alicia Heath,15,F,Medicaid,SINGLE,HISPANIC OR LATINO,22,ELECTIVE,TRANSFER FROM HOSPITAL,100,87,118,Multivitamins W/minerals,"Urinary tract infection, site not specified"
+23,Craig Nelson,35,M,Medicare,WIDOWED,BLACK/AFRICAN AMERICAN,23,URGENT,PACU,102,158,61,Ondansetron,Methicillin resistant pneumonia due to Staphylococcus aureus
+24,John Ray,80,M,Medicare,SINGLE,HISPANIC/LATINO - CUBAN,24,DIRECT EMER.,EMERGENCY ROOM,116,94,108,Sodium Chloride,Methicillin resistant pneumonia due to Staphylococcus aureus
+25,Joseph Medina,48,M,Other,WIDOWED,WHITE - OTHER EUROPEAN,25,DIRECT OBSERVATION,TRANSFER FROM HOSPITAL,114,156,100,Midodrine,"Dysphagia, oropharyngeal phase"
+26,Kyle Thomas,25,M,Other,DIVORCED,OTHER,26,EU OBSERVATION,CLINIC REFERRAL,87,144,115,Sodium Chloride,"Streptococcus infection in conditions classified elsewhere and of unspecified site, streptococcus, group D [Enterococcus]"
+27,David Hughes,14,M,Other,WIDOWED,HISPANIC OR LATINO,27,SURGICAL SAME DAY ADMISSION,TRANSFER FROM SKILLED NURSING FACILITY,78,111,80,Nephrocaps,Hypoxemia
+28,Leah Patel,80,F,Medicaid,WIDOWED,HISPANIC OR LATINO,28,URGENT,EMERGENCY ROOM,117,190,78,Nephrocaps,"Urinary tract infection, site not specified"
+29,Tony Alvarado,46,M,Medicare,DIVORCED,PATIENT DECLINED TO ANSWER,29,EW EMER.,INTERNAL TRANSFER TO OR FROM PSYCH,94,127,107,Midodrine,Esophageal reflux

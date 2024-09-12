@@ -1,11 +1,13 @@
 import pickle
+from typing import Optional
 from fastapi.responses import JSONResponse
 import uvicorn
 import pandas as pd
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi import FastAPI, HTTPException, Form, Query, Request
+from fastapi import FastAPI, HTTPException, Form, Query, Request, Body
 from pydantic import BaseModel
+from datetime import date
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -101,7 +103,7 @@ def predict(
 
         results = {}
         df = pd.DataFrame([patient])
-        results["los"] = (round(predict_los(df).item(), 2))
+        results["los"] = (round(predict_los(df).item()))
         results["death"] = (predict_death_by_data(df).astype(bool).item())
         results["readmission"] = (predict_readmission_by_data(df).astype(bool).item())
         print(results)
@@ -220,7 +222,9 @@ async def invent(request: Request):
     ppe = inventory[(inventory.category == "PPE")].shape[0]
     cleaning_supplies = inventory[(inventory.category == "Cleaning Supplies")].shape[0]
     diagnostic_tools = inventory[(inventory.category == "Diagnostic Tools")].shape[0]
-    
+    inventory_data = inventory.to_dict(orient="records")  # Ensuring this is a list of dicts
+    today = date.today().strftime('%Y-%m-%d')  # Get today's date in 'YYYY-MM-DD' format
+
     return templates.TemplateResponse("inventory.html", context={
         "request": request,
         "medical_equipment": medical_equipment,
@@ -229,7 +233,63 @@ async def invent(request: Request):
         "ppe": ppe,
         "cleaning_supplies": cleaning_supplies,
         "diagnostic_tools": diagnostic_tools,
+        "inventory_data": inventory_data,  # Pass inventory data correctly
+        "today": today,
     })
+
+
+@app.get("/inventory_data", response_class=JSONResponse)
+async def get_inventory_data():
+    # Convert DataFrame to dictionary
+    data = inventory.to_dict(orient='records')
+    return JSONResponse(content=data)
+
+# Path to the templates folder
+templates = Jinja2Templates(directory="app/templates")
+
+@app.get("/product_details")
+async def get_product_details(product_id: int):
+
+    # Find the product by product_id
+    product = inventory[inventory["product_id"] == product_id]
+
+    if product.empty:
+        raise HTTPException(status_code=404, detail="Product not found")
+
+    # Convert the product details to a dictionary (Pandas DataFrame -> Dict)
+    product_details = product.to_dict(orient="records")[0]
+
+    return product_details
+
+@app.post("/modify_product")
+async def modify_product(request: Request):
+
+    # Find the product by product_id
+    product_index = inventory[inventory["product_id"] == request.product_id].index
+
+    if product_index.empty:
+        raise HTTPException(status_code=404, detail="Product not found")
+
+    if request.action == "add":
+        # Add the specified quantity to the existing product
+        new_quantity = inventory.loc[product_index, "quantity"].values[0] + request.quantity
+        inventory.loc[product_index, "quantity"] = new_quantity
+
+    elif request.action == "delete":
+        # Remove the product from the inventory
+        inventory = inventory.drop(product_index)
+
+    else:
+        raise HTTPException(status_code=400, detail="Invalid action. Use 'add' or 'delete'.")
+
+    # Save the updated inventory
+    save_inventory(inventory)
+
+    return {"message": f"Product {request.action} operation successful."}
+    
+
+def save_inventory(df):
+    df.to_csv("app/data/hospital_inventory.csv", index=False)
 
 
 ###################################

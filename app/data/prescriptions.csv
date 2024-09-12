@@ -1,31 +1,31 @@
 prescription_id,adm_id,drug
-0,0,Nephrocaps
-1,1,Ondansetron
-2,2,Multivitamins W/minerals
-3,3,Midodrine
-4,4,Multivitamins W/minerals
-5,5,Ondansetron
-6,6,Nicotine Polacrilex
-7,7,OxyCODONE (Immediate Release)
-8,8,Nephrocaps
-9,9,Sodium Chloride
-10,10,Midodrine
-11,11,Nicotine Polacrilex
+0,0,Sodium Chloride
+1,1,Sodium Chloride
+2,2,Nephrocaps
+3,3,Nephrocaps
+4,4,Nicotine Polacrilex
+5,5,Sodium Chloride
+6,6,Ondansetron
+7,7,Nicotine Polacrilex
+8,8,Nicotine Polacrilex
+9,9,OLANZapine
+10,10,Ondansetron
+11,11,OxyCODONE (Immediate Release)
 12,12,Nicotine Polacrilex
-13,13,Nicotine Polacrilex
-14,14,Nicotine Polacrilex
-15,15,Nephrocaps
-16,16,OxyCODONE (Immediate Release)
-17,17,Nephrocaps
-18,18,OxyCODONE (Immediate Release)
-19,19,Sodium Chloride
-20,20,Sodium Chloride
-21,21,Midodrine
-22,22,Sodium Chloride
+13,13,Nephrocaps
+14,14,Midodrine
+15,15,OxyCODONE (Immediate Release)
+16,16,Sodium Chloride
+17,17,Midodrine
+18,18,Multivitamins W/minerals
+19,19,Midodrine
+20,20,Nephrocaps
+21,21,Ondansetron
+22,22,Multivitamins W/minerals
 23,23,Ondansetron
-24,24,Multivitamins W/minerals
-25,25,Nephrocaps
+24,24,Sodium Chloride
+25,25,Midodrine
 26,26,Sodium Chloride
-27,27,OLANZapine
+27,27,Nephrocaps
 28,28,Nephrocaps
-29,29,OxyCODONE (Immediate Release)
+29,29,Midodrine
